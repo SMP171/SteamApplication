@@ -1,0 +1,18 @@
+﻿<Window x:Class="SteamApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SteamApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Label Content="Steam Application" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.539,0.526" Height="43" Width="223" Cursor="None" FontSize="25" FontWeight="Bold"/>
+        <Button x:Name="DevelopersButton" Content="Developers" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="111" Height="30" FontSize="18" Padding="0"/>
+        <Button x:Name="UsersButton" Content="Users" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="111" Height="30" FontSize="18" Padding="0"/>
+        <Button x:Name="ProductsButton" Content="Products" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Width="111" Height="30" FontSize="18" Padding="0"/>
+        <Button x:Name="GroupsButton" Content="Groups" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="111" Height="30" FontSize="18" Padding="0"/>
+        <Button x:Name="ThreadsButton" Content="Threads" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top" Width="111" Height="30" FontSize="18" Padding="0"/>
+
+    </Grid>
+</Window>
