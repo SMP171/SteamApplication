@@ -1,0 +1,2 @@
+# StreamApplication
+Analog of Steam
