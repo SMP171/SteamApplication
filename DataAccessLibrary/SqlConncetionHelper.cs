@@ -17,10 +17,10 @@ namespace DataAccessLibrary
             {
                 //Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionStringName"].ConnectionString;
                 DbProviderFactory providerFactory = DbProviderFactories.GetFactory(ConfigurationManager
-                                            .ConnectionStrings["ConnectionStringName"].ProviderName);
+                                            .ConnectionStrings["DB171"].ProviderName);
                 DbConnection connection = providerFactory.CreateConnection();
 
-                connection.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionStringName"].ConnectionString;
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["DB171"].ConnectionString;
                 return connection;
             }
         }
