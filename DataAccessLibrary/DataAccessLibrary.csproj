@@ -71,6 +71,7 @@
     <Compile Include="EntityFramework\users_products.cs" />
     <Compile Include="EntityFramework\user_statuses.cs" />
     <Compile Include="EntityFramework\wallet.cs" />
+    <Compile Include="FriendMessageService.cs" />
     <Compile Include="FriendService.cs" />
     <Compile Include="GroupCommentsService.cs" />
     <Compile Include="GroupService.cs" />
@@ -78,7 +79,9 @@
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlConncetionHelper.cs" />
+    <Compile Include="ThreadAnswerService.cs" />
     <Compile Include="ThreadService.cs" />
+    <Compile Include="UserService.cs" />
     <Compile Include="WalletService.cs" />
   </ItemGroup>
   <ItemGroup>

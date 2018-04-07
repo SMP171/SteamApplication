@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLibrary
 {
@@ -20,17 +17,22 @@ namespace DataAccessLibrary
             nameParameter.ParameterName = "@Name";
             nameParameter.Value = thread.Name;
 
-
             DbParameter textParameter = command.CreateParameter();
             textParameter.DbType = System.Data.DbType.String;
-            textParameter.IsNullable = true;
+            textParameter.IsNullable = false;
             textParameter.ParameterName = "@Text";
             textParameter.Value = thread.Text;
 
-            command.Parameters.AddRange(new DbParameter[] { nameParameter, textParameter });
+            DbParameter creatorIdParameter = command.CreateParameter();
+            creatorIdParameter.DbType = System.Data.DbType.Int32;
+            creatorIdParameter.IsNullable = false;
+            creatorIdParameter.ParameterName = "@CreatorId";
+            creatorIdParameter.Value = thread.Creator_id;
 
-            command.CommandText = @"INSERT INTO [dbo].[thread]([name],[text]) VALUES
-                                        (@Name, @Text)";
+            command.Parameters.AddRange(new DbParameter[] { nameParameter, textParameter, creatorIdParameter });
+
+            command.CommandText = @"INSERT INTO [dbo].[threads]([name],[text],[creator_id]) VALUES
+                                        (@Name, @Text, @CreatorId)";
 
             SqlConncetionHelper.ExecuteCommands(command);
         }
@@ -41,6 +43,39 @@ namespace DataAccessLibrary
 
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
             command.CommandText = "select * from threads";
+
+            DbDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                threads.Add(
+                    new Thread
+                    {
+                        Id = (int)reader["thread_id"],
+                        Name = reader["name"].ToString(),
+                        Text = reader["text"].ToString(),
+                        Creator_id = (int)reader["creator_id"],
+                        CreateDate = (DateTime)reader["create_date"],
+                        IsDeleted = (bool)reader["IsDeleted"]
+                    });
+            }
+
+            return threads;
+        }
+
+        public List<Thread> GetUserThreads(User user)
+        {
+            List<Thread> threads = new List<Thread>();
+
+            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
+
+            DbParameter userIdParameter = command.CreateParameter();
+            userIdParameter.DbType = System.Data.DbType.Int32;
+            userIdParameter.ParameterName = "@UserId";
+            userIdParameter.Value = user.Id;
+
+            command.Parameters.Add(userIdParameter);
+            command.CommandText = @"select * from threads where creator_id = @UserId";
 
             DbDataReader reader = command.ExecuteReader();
 

@@ -20,17 +20,16 @@ namespace DataAccessLibrary
             balanceParameter.IsNullable = false;
             balanceParameter.ParameterName = "@balance";
             balanceParameter.Value = wallet.Balance;
-            command.Parameters.Add(balanceParameter);
 
             DbParameter idParameter = command.CreateParameter();
             idParameter.DbType = System.Data.DbType.Int32;
             idParameter.IsNullable = false;
             idParameter.ParameterName = "@Id";
             idParameter.Value = wallet.Id;
-            command.Parameters.Add(idParameter);
 
+            command.Parameters.AddRange(new DbParameter[] { balanceParameter, idParameter });
             command.CommandText = @"INSERT INTO [dbo].[wallets]
-                                            ([balance],[id]) VALUES (@balance, @Id)";
+                                            ([balance],[wallet_id]) VALUES (@balance, @Id)";
 
             SqlConncetionHelper.ExecuteCommands(command);
         }
@@ -44,17 +43,16 @@ namespace DataAccessLibrary
             balanceParameter.IsNullable = false;
             balanceParameter.ParameterName = "@balance";
             balanceParameter.Value = wallet.Balance;
-            command.Parameters.Add(balanceParameter);
 
             DbParameter idParameter = command.CreateParameter();
             idParameter.DbType = System.Data.DbType.Int32;
             idParameter.IsNullable = false;
             idParameter.ParameterName = "@Id";
             idParameter.Value = wallet.Id;
-            command.Parameters.Add(idParameter);
 
+            command.Parameters.AddRange(new DbParameter[] { balanceParameter, idParameter });
             command.CommandText = @"Update [dbo].[wallets]
-                                            Set balance = @balance where id = @id";
+                                            Set balance = @balance where id = @Id";
 
             SqlConncetionHelper.ExecuteCommands(command);
         }
@@ -65,7 +63,7 @@ namespace DataAccessLibrary
             List<Wallet> wallets = new List<Wallet>();
 
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
-            command.CommandText = "select * from Wallets";
+            command.CommandText = "select * from wallets";
 
             DbDataReader reader = command.ExecuteReader();
 
