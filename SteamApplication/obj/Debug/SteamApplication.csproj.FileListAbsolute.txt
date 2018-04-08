@@ -13,3 +13,10 @@ C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplica
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.csproj.CoreCompileInputs.cache
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.exe
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.pdb
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\DataAccessLibrary.dll
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\DomainModel.dll
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\EntityFramework.dll
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\DataAccessLibrary.pdb
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\DataAccessLibrary.dll.config
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\DomainModel.pdb
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\EntityFramework.xml

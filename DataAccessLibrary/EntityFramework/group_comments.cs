@@ -9,20 +9,20 @@ namespace DataAccessLibrary.EntityFramework
     public partial class group_comments
     {
         [Key]
-        public int gc_id { get; set; }
+        public int Gc_id { get; set; }
 
-        public int group_id { get; set; }
+        public int Group_id { get; set; }
 
-        public int user_id { get; set; }
+        public int User_id { get; set; }
 
         [Column(TypeName = "text")]
         [Required]
-        public string comment_text { get; set; }
+        public string Comment_text { get; set; }
 
-        public DateTime? send_date { get; set; }
+        public DateTime? Send_date { get; set; }
 
-        public virtual group group { get; set; }
+        public virtual group Group { get; set; }
 
-        public virtual user user { get; set; }
+        public virtual user User { get; set; }
     }
 }

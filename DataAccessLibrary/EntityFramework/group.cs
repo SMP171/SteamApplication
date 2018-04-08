@@ -16,23 +16,23 @@ namespace DataAccessLibrary.EntityFramework
         }
 
         [Key]
-        public int group_id { get; set; }
+        public int Group_id { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string group_name { get; set; }
+        public string Group_name { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime created_date { get; set; }
+        public DateTime Created_date { get; set; }
 
-        public int user_id { get; set; }
+        public int User_id { get; set; }
 
         public byte IsDeleted { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<group_comments> group_comments { get; set; }
 
-        public virtual user user { get; set; }
+        public virtual user User { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<groups_users> groups_users { get; set; }
