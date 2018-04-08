@@ -42,12 +42,14 @@
   <ItemGroup>
     <Compile Include="Developer.cs" />
     <Compile Include="Friend.cs" />
+    <Compile Include="FriendMessage.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="GroupComments.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Thread.cs" />
+    <Compile Include="ThreadAnswer.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Wallet.cs" />
   </ItemGroup>
