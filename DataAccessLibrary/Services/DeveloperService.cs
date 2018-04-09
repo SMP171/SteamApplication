@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.Common;
-using DomainModel;
-using System.Configuration;
+using DomainModel.DomainModels;
 
-namespace DataAccessLibrary
+namespace DataAccessLibrary.Services
 {
     public class DeveloperService
     {

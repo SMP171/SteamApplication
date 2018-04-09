@@ -1,9 +1,9 @@
-﻿using DomainModel;
+﻿using DomainModel.DomainModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
 
-namespace DataAccessLibrary
+namespace DataAccessLibrary.Services
 {
     public class ThreadAnswerService
     {

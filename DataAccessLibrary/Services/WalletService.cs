@@ -1,13 +1,8 @@
-﻿using DomainModel;
-using System;
+﻿using DomainModel.DomainModels;
 using System.Collections.Generic;
 using System.Data.Common;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DataAccessLibrary
+namespace DataAccessLibrary.Services
 {
     public class WalletService
     {

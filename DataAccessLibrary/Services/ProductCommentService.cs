@@ -1,12 +1,9 @@
-﻿using DomainModel;
+﻿using DomainModel.DomainModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DataAccessLibrary
+namespace DataAccessLibrary.Services
 {
     public class ProductCommentService
     {

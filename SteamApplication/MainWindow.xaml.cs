@@ -1,5 +1,6 @@
 ﻿using DataAccessLibrary;
-using DomainModel;
+using DataAccessLibrary.Services;
+using DomainModel.DomainModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,14 +27,9 @@ namespace SteamApplication
         {
             InitializeComponent();
 
-            Group group = new Group()
-            {
-                Name = "Группа1",
-                UserId = 2
-            };
+            GroupService groupService = new GroupService();
 
-            GroupService service = new GroupService();
-            service.CreateGroup(group);
+            List<Group> groups = groupService.SelectAllGroups();
         }
     }
 }

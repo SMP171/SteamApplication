@@ -85,14 +85,14 @@
     <Compile Include="Services\WalletService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">
       <Project>{e65c4984-3a22-487c-8272-d49633694d38}</Project>
       <Name>DomainModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainModel
+namespace DomainModel.DomainModels
 {
     //Модель таблицы связи многие ко многим
     public class Friend

@@ -1,12 +1,12 @@
 ﻿using DataAccessLibrary.EntityFramework;
-using DomainModel;
+using DomainModel.DomainModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
 
-namespace DataAccessLibrary
+namespace DataAccessLibrary.Services
 {
     public class GroupService
     {
@@ -61,22 +61,26 @@ namespace DataAccessLibrary
         {
             List<Group> groups = new List<Group>();
 
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
-
-            command.CommandText = "select * from groups";
-
-            DbDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            using (var connection = SqlConncetionHelper.Connection)
             {
-                groups.Add(new Group
+                connection.Open();
+
+                DbCommand command = connection.CreateCommand();
+                command.CommandText = "select * from groups";
+
+                DbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    Id = (int)reader["group_id"],
-                    Name = reader["group_name"].ToString(),
-                    CreatedDate = (DateTime)reader["created_date"],
-                    UserId = (int)reader["user_id"],
-                    IsDeleted = (bool)reader["IsDeleted"]
-                });
+                    groups.Add(new Group
+                    {
+                        Id = (int)reader["group_id"],
+                        Name = reader["group_name"].ToString(),
+                        CreatedDate = DateTime.Parse(reader["created_date"].ToString()),
+                        UserId = (int)reader["user_id"],
+                        IsDeleted = Convert.ToBoolean(reader["IsDeleted"])
+                    });
+                }
             }
 
             return groups;
@@ -114,7 +118,7 @@ namespace DataAccessLibrary
             //return groups;
             #endregion
 
-            using(var context = new SteamContext())
+            using (var context = new SteamContext())
             {
                 List<group> groups = new List<group>();
                 groups = context.Groups.Where(x => x.User_id == user.Id).ToList();
@@ -127,29 +131,33 @@ namespace DataAccessLibrary
         {
             List<User> members = new List<User>();
 
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
-
-            DbParameter userIdParameter = command.CreateParameter();
-            userIdParameter.DbType = System.Data.DbType.Int32;
-            userIdParameter.ParameterName = "@GroupId";
-            userIdParameter.Value = group.Id;
-
-            command.Parameters.Add(userIdParameter);
-            command.CommandText = "exec GetGroupMembers @GroupId";
-            DbDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            using (var connection = SqlConncetionHelper.Connection)
             {
-                members.Add(new User
+                connection.Open();
+                DbCommand command = connection.CreateCommand();
+
+                DbParameter userIdParameter = command.CreateParameter();
+                userIdParameter.DbType = DbType.Int32;
+                userIdParameter.ParameterName = "@GroupId";
+                userIdParameter.Value = group.Id;
+
+                command.Parameters.Add(userIdParameter);
+                command.CommandText = "exec GetGroupMembers @GroupId";
+                DbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    Id = (int)reader["user_id"],
-                    Nickname = reader["nickname"].ToString(),
-                    Password = reader["password"].ToString(),
-                    RegisterDate = (DateTime)reader["register_date"],
-                    WalletId = (int)reader["wallet_id"],
-                    StatusId = (int)reader["status_id"],
-                    IsDeleted = (bool)reader["IsDeleted"]
-                });
+                    members.Add(new User
+                    {
+                        Id = (int)reader["user_id"],
+                        Nickname = reader["nickname"].ToString(),
+                        Password = reader["password"].ToString(),
+                        RegisterDate = DateTime.Parse(reader["register_date"].ToString()),
+                        WalletId = (int)reader["wallet_id"],
+                        StatusId = (int)reader["status_id"],
+                        IsDeleted = Convert.ToBoolean(reader["IsDeleted"])
+                    });
+                }
             }
 
             return members;
@@ -160,7 +168,7 @@ namespace DataAccessLibrary
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
             DbParameter groupIdParameter = command.CreateParameter();
-            groupIdParameter.DbType = System.Data.DbType.Int32;
+            groupIdParameter.DbType = DbType.Int32;
             groupIdParameter.ParameterName = "@GroupId";
             groupIdParameter.Value = group.Id;
 

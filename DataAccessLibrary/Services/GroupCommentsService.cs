@@ -1,12 +1,12 @@
 ﻿using DataAccessLibrary.EntityFramework;
-using DomainModel;
+using DomainModel.DomainModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
 
-namespace DataAccessLibrary
+namespace DataAccessLibrary.Services
 {
     public class GroupCommentsService
     {
@@ -46,8 +46,8 @@ namespace DataAccessLibrary
             selectCommand.CommandText = "select * from group_comments";
             DbCommandBuilder builder = SqlConncetionHelper.ProviderFactory.CreateCommandBuilder();
             builder.DataAdapter = adapter;
-            adapter.SelectCommand = selectCommand;            
-            
+            adapter.SelectCommand = selectCommand;
+
             DataSet ds = new DataSet();
             adapter.Fill(ds);
 
@@ -89,7 +89,7 @@ namespace DataAccessLibrary
             //Entity Framwork implementation
             List<group_comments> comments = new List<group_comments>();
 
-            using(var context = new SteamContext())
+            using (var context = new SteamContext())
             {
                 comments = context.Group_comments.ToList();
             }
@@ -106,29 +106,33 @@ namespace DataAccessLibrary
         {
             List<GroupComments> groupComments = new List<GroupComments>();
 
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
-
-            DbParameter groupParameter = command.CreateParameter();
-            groupParameter.DbType = System.Data.DbType.Int32;
-            groupParameter.ParameterName = "@GroupId";
-            groupParameter.Value = group.Id;
-
-            command.Parameters.Add(groupParameter);
-            command.CommandText = "select * from group_comments" +
-                                  " where group_id = @GroupId";
-
-            DbDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            using (var connection = SqlConncetionHelper.Connection)
             {
-                groupComments.Add(new GroupComments
+                connection.Open();
+                DbCommand command = connection.CreateCommand();
+
+                DbParameter groupParameter = command.CreateParameter();
+                groupParameter.DbType = DbType.Int32;
+                groupParameter.ParameterName = "@GroupId";
+                groupParameter.Value = group.Id;
+
+                command.Parameters.Add(groupParameter);
+                command.CommandText = "select * from group_comments" +
+                                      " where group_id = @GroupId";
+
+                DbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    Id = (int)reader["gc_id"],
-                    UserId = (int)reader["user_id"],
-                    GroupId = (int)reader["group_id"],
-                    Text = reader["comment_text"].ToString(),
-                    SendDate = (DateTime)reader["send_date"]
-                });
+                    groupComments.Add(new GroupComments
+                    {
+                        Id = (int)reader["gc_id"],
+                        UserId = (int)reader["user_id"],
+                        GroupId = (int)reader["group_id"],
+                        Text = reader["comment_text"].ToString(),
+                        SendDate = (DateTime)reader["send_date"]
+                    });
+                }
             }
 
             return groupComments;
