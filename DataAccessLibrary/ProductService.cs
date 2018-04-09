@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLibrary
 {
+    //Здесть CreateProduct реализован при помощи AutonomLevel Connection
     public class ProductService
     {
         public bool UpdateProduct(Product product)
@@ -133,38 +134,6 @@ namespace DataAccessLibrary
             command.CommandText = "UPDATE dbo.Products SET IsDelted = 1 WHERE ProductID = @ProductId";
 
             return SqlConncetionHelper.ExecuteCommands(command);
-        }
-
-        public List<ProductComment> GetProductComments(Product product)
-        {
-            List<ProductComment> productComments = new List<ProductComment>();
-
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
-
-            DbParameter productIdParameter = command.CreateParameter();
-            productIdParameter.DbType = System.Data.DbType.Int32;
-            productIdParameter.IsNullable = false;
-            productIdParameter.ParameterName = "@ProductId";
-            productIdParameter.Value = product.ProductId;
-            command.Parameters.Add(productIdParameter);
-
-            command.CommandText = "select * from dbo.Product_comments where product_id = @ProductId";
-
-            DbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                productComments.Add(
-                    new ProductComment
-                    {
-                        ProductCommentId = (int)reader["pc_id"],
-                        ProductId = (int)reader["product_id"],
-                        UserId = (int)reader["user_id"],
-                        Text = reader["text"].ToString(),
-                        DateSent = (DateTime)reader["Send_date"]
-                    });
-            }
-
-            return productComments;
         }
     }
 }

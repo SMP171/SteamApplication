@@ -17,3 +17,5 @@ C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplica
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.exe
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.pdb
 >>>>>>> master
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.exe
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.pdb
