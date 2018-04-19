@@ -13,5 +13,6 @@ namespace DomainModel
         public DateTime CreatedDate { get; set; }
         public int UserId { get; set; }
         public bool IsDeleted { get; set; }
+        public List<User> Members { get; set; }
     }
 }

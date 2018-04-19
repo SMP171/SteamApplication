@@ -1,11 +1,10 @@
-﻿using DomainModel;
+﻿using DataAccessLibrary.EntityFramework;
+using DomainModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLibrary
 {
@@ -13,56 +12,89 @@ namespace DataAccessLibrary
     {
         public void CreateGroupComment(GroupComments groupComment)
         {
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
+            #region Подключенный режим
+            //DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
-            DbParameter groupIdParameter = command.CreateParameter();
-            groupIdParameter.DbType = System.Data.DbType.Int32;
-            groupIdParameter.IsNullable = false;
-            groupIdParameter.ParameterName = "@GroupId";
-            groupIdParameter.Value = groupComment.GroupId;
+            //DbParameter groupIdParameter = command.CreateParameter();
+            //groupIdParameter.DbType = System.Data.DbType.Int32;
+            //groupIdParameter.IsNullable = false;
+            //groupIdParameter.ParameterName = "@GroupId";
+            //groupIdParameter.Value = groupComment.GroupId;
 
-            DbParameter userIdParameter = command.CreateParameter();
-            userIdParameter.DbType = System.Data.DbType.Int32;
-            userIdParameter.IsNullable = false;
-            userIdParameter.ParameterName = "@UserId";
-            userIdParameter.Value = groupComment.UserId;
+            //DbParameter userIdParameter = command.CreateParameter();
+            //userIdParameter.DbType = System.Data.DbType.Int32;
+            //userIdParameter.IsNullable = false;
+            //userIdParameter.ParameterName = "@UserId";
+            //userIdParameter.Value = groupComment.UserId;
 
-            DbParameter textParameter = command.CreateParameter();
-            textParameter.DbType = System.Data.DbType.String;
-            textParameter.IsNullable = false;
-            textParameter.ParameterName = "@Text";
-            textParameter.Value = groupComment.Text;
+            //DbParameter textParameter = command.CreateParameter();
+            //textParameter.DbType = System.Data.DbType.String;
+            //textParameter.IsNullable = false;
+            //textParameter.ParameterName = "@Text";
+            //textParameter.Value = groupComment.Text;
 
-            command.Parameters.AddRange(new DbParameter[] { groupIdParameter, userIdParameter, textParameter });
-            command.CommandText = @"INSERT INTO [dbo].[group_comments]([group_id],[user_id],[comment_text]) VALUES
-                                        (@GroupId, @UserId, @Text)";
+            //command.Parameters.AddRange(new DbParameter[] { groupIdParameter, userIdParameter, textParameter });
+            //command.CommandText = @"INSERT INTO [dbo].[group_comments]([group_id],[user_id],[comment_text]) VALUES
+            //                            (@GroupId, @UserId, @Text)";
 
-            SqlConncetionHelper.ExecuteCommands(command);
+            //SqlConncetionHelper.ExecuteCommands(command);
+            #endregion
+
+            //Отключеный режим
+            DbDataAdapter adapter = SqlConncetionHelper.DataAdapter;
+            DbCommand selectCommand = SqlConncetionHelper.Connection.CreateCommand();
+            selectCommand.CommandText = "select * from group_comments";
+            DbCommandBuilder builder = SqlConncetionHelper.ProviderFactory.CreateCommandBuilder();
+            builder.DataAdapter = adapter;
+            adapter.SelectCommand = selectCommand;
+
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+
+            DataTable table = ds.Tables[0];
+            DataRow newRow = table.NewRow();
+            newRow["group_id"] = groupComment.GroupId;
+            newRow["user_id"] = groupComment.UserId;
+            newRow["comment_text"] = groupComment.Text;
+
+            table.Rows.Add(newRow);
+            adapter.Update(ds);
+            ds.AcceptChanges();
         }
 
-        public List<GroupComments> SelectAllGroupComments()
+        public List<group_comments> SelectAllGroupComments()
         {
-            List<GroupComments> groupComments = new List<GroupComments>();
+            #region Подключенный режим
+            //List<GroupComments> groupComments = new List<GroupComments>();
 
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
+            //DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
-            command.CommandText = "select * from group_comments";
+            //command.CommandText = "select * from group_comments";
 
-            DbDataReader reader = command.ExecuteReader();
+            //DbDataReader reader = command.ExecuteReader();
 
-            while (reader.Read())
+            //while (reader.Read())
+            //{
+            //    groupComments.Add(new GroupComments
+            //    {
+            //        Id = (int)reader["gc_id"],
+            //        UserId = (int)reader["user_id"],
+            //        GroupId = (int)reader["group_id"],
+            //        Text = reader["comment_text"].ToString(),
+            //        SendDate = (DateTime)reader["send_date"]
+            //    });
+            //}
+            #endregion
+
+            //Entity Framwork implementation
+            List<group_comments> comments = new List<group_comments>();
+
+            using (var context = new SteamContext())
             {
-                groupComments.Add(new GroupComments
-                {
-                    Id = (int)reader["gc_id"],
-                    UserId = (int)reader["user_id"],
-                    GroupId = (int)reader["group_id"],
-                    Text = reader["comment_text"].ToString(),
-                    SendDate = (DateTime)reader["send_date"]
-                });
+                comments = context.Group_comments.ToList();
             }
 
-            return groupComments;
+            return comments;
         }
 
         /// <summary>
@@ -74,32 +106,73 @@ namespace DataAccessLibrary
         {
             List<GroupComments> groupComments = new List<GroupComments>();
 
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
-
-            DbParameter groupParameter = command.CreateParameter();
-            groupParameter.DbType = System.Data.DbType.Int32;
-            groupParameter.ParameterName = "@GroupId";
-            groupParameter.Value = group.Id;
-
-            command.Parameters.Add(groupParameter);
-            command.CommandText = "select * from group_comments" +
-                                  " where group_id = @GroupId";
-
-            DbDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            using (var connection = SqlConncetionHelper.Connection)
             {
-                groupComments.Add(new GroupComments
+                connection.Open();
+                DbCommand command = connection.CreateCommand();
+
+                DbParameter groupParameter = command.CreateParameter();
+                groupParameter.DbType = DbType.Int32;
+                groupParameter.ParameterName = "@GroupId";
+                groupParameter.Value = group.Id;
+
+                command.Parameters.Add(groupParameter);
+                command.CommandText = "select * from group_comments" +
+                                      " where group_id = @GroupId";
+
+                DbDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    Id = (int)reader["gc_id"],
-                    UserId = (int)reader["user_id"],
-                    GroupId = (int)reader["group_id"],
-                    Text = reader["comment_text"].ToString(),
-                    SendDate = (DateTime)reader["send_date"]
-                });
+                    GroupComments comment = new GroupComments()
+                    {
+                        Id = (int)reader["gc_id"],
+                        UserId = (int)reader["user_id"],
+                        GroupId = (int)reader["group_id"],
+                        Text = reader["comment_text"].ToString(),
+                        SendDate = (DateTime)reader["send_date"]
+                    };
+                    comment.User = GetGroupCommentUser(comment);
+
+                    groupComments.Add(comment);
+                }
             }
 
             return groupComments;
+        }
+
+        public User GetGroupCommentUser(GroupComments comment)
+        {
+            User user = new User();
+
+            using (var connection = SqlConncetionHelper.Connection)
+            {
+                connection.Open();
+                DbCommand command = connection.CreateCommand();
+
+                DbParameter groupParameter = command.CreateParameter();
+                groupParameter.DbType = DbType.Int32;
+                groupParameter.ParameterName = "@userId";
+                groupParameter.Value = comment.UserId;
+
+                command.Parameters.Add(groupParameter);
+                command.CommandText = "select * from users" +
+                                      " where user_id = @userId";
+
+                DbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    user.Id = (int)reader["user_id"];
+                    user.Nickname = reader["nickname"].ToString();
+                    user.Password = reader["password"].ToString();
+                    user.RegisterDate = DateTime.Parse(reader["register_date"].ToString());
+                    user.WalletId = (int)reader["wallet_id"];
+                    user.StatusId = (int)reader["status_id"];
+                    user.IsDeleted = Convert.ToBoolean(reader["IsDeleted"]);
+                }
+            }
+
+            return user;
         }
     }
 }

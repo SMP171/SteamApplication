@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Common;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLibrary
 {
@@ -22,6 +17,26 @@ namespace DataAccessLibrary
 
                 connection.ConnectionString = ConfigurationManager.ConnectionStrings["DB171"].ConnectionString;
                 return connection;
+            }
+        }
+
+        public static DbDataAdapter DataAdapter
+        {
+            get
+            {
+                DbProviderFactory providerFactory = DbProviderFactories.GetFactory(ConfigurationManager
+                                            .ConnectionStrings["DB171"].ProviderName);
+
+                return providerFactory.CreateDataAdapter();
+            }
+        }
+
+        public static DbProviderFactory ProviderFactory
+        {
+            get
+            {
+                return  DbProviderFactories.GetFactory(ConfigurationManager
+                                            .ConnectionStrings["DB171"].ProviderName);
             }
         }
 

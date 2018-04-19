@@ -53,16 +53,16 @@ namespace DataAccessLibrary.EntityFramework
                 .IsUnicode(false);
 
             modelBuilder.Entity<group_comments>()
-                .Property(e => e.comment_text)
+                .Property(e => e.Comment_text)
                 .IsUnicode(false);
 
             modelBuilder.Entity<group>()
-                .Property(e => e.group_name)
+                .Property(e => e.Group_name)
                 .IsUnicode(false);
 
             modelBuilder.Entity<group>()
                 .HasMany(e => e.group_comments)
-                .WithRequired(e => e.group)
+                .WithRequired(e => e.Group)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<group>()
@@ -189,12 +189,12 @@ namespace DataAccessLibrary.EntityFramework
 
             modelBuilder.Entity<user>()
                 .HasMany(e => e.group_comments)
-                .WithRequired(e => e.user)
+                .WithRequired(e => e.User)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<user>()
                 .HasMany(e => e.groups)
-                .WithRequired(e => e.user)
+                .WithRequired(e => e.User)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<user>()

@@ -9,5 +9,6 @@ namespace DomainModel
         public int UserId { get; set; }
         public string Text { get; set; }
         public DateTime? SendDate { get; set; }
+        public User User { get; set; }
     }
 }

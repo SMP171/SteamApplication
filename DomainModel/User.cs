@@ -11,5 +11,10 @@ namespace DomainModel
         public int WalletId { get; set; }
         public int StatusId { get; set; }
         public bool IsDeleted { get; set; }
+
+        public override string ToString()
+        {
+            return Nickname;
+        }
     }
 }
