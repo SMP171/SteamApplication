@@ -1,6 +1,5 @@
 ﻿using DataAccessLibrary;
-using DataAccessLibrary.Services;
-using DomainModel.DomainModels;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +29,11 @@ namespace SteamApplication
             GroupService groupService = new GroupService();
 
             List<Group> groups = groupService.SelectAllGroups();
+        }
+
+        private void GroupsButton_Click(object sender, RoutedEventArgs e)
+        {
+            FrameContent.NavigationService.Navigate(new Groups(FrameContent));
         }
     }
 }

@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\DeveloperService.cs" />
+    <Compile Include="DeveloperService.cs" />
     <Compile Include="EntityFramework\developer.cs" />
     <Compile Include="EntityFramework\friend.cs" />
     <Compile Include="EntityFramework\friend_messages.cs" />
@@ -71,18 +71,18 @@
     <Compile Include="EntityFramework\users_products.cs" />
     <Compile Include="EntityFramework\user_statuses.cs" />
     <Compile Include="EntityFramework\wallet.cs" />
-    <Compile Include="Services\FriendMessageService.cs" />
-    <Compile Include="Services\FriendService.cs" />
-    <Compile Include="Services\GroupCommentsService.cs" />
-    <Compile Include="Services\GroupService.cs" />
-    <Compile Include="Services\ProductCommentService.cs" />
-    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="FriendMessageService.cs" />
+    <Compile Include="FriendService.cs" />
+    <Compile Include="GroupCommentsService.cs" />
+    <Compile Include="GroupService.cs" />
+    <Compile Include="ProductCommentService.cs" />
+    <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\SqlConncetionHelper.cs" />
-    <Compile Include="Services\ThreadAnswerService.cs" />
-    <Compile Include="Services\ThreadService.cs" />
-    <Compile Include="Services\UserService.cs" />
-    <Compile Include="Services\WalletService.cs" />
+    <Compile Include="SqlConncetionHelper.cs" />
+    <Compile Include="ThreadAnswerService.cs" />
+    <Compile Include="ThreadService.cs" />
+    <Compile Include="UserService.cs" />
+    <Compile Include="WalletService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

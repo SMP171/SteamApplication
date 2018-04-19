@@ -20,3 +20,9 @@ C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplica
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\DataAccessLibrary.dll.config
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\DomainModel.pdb
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\EntityFramework.xml
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\CreateGroup.g.cs
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\Groups.g.cs
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\CreateGroup.baml
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\Groups.baml
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\GroupInfo.g.cs
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\GroupInfo.baml

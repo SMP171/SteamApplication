@@ -5,14 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="600" Width="800" MinWidth="800" MinHeight="600">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="Padding" Value="10,0,11,0"/>
+            <Setter Property="Padding" Value="10,0,11,0"/>
+            <Setter Property="Background" Value="#FF5D5D5D"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0 0 0 4"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Label Content="Steam Application" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.539,0.526" Height="43" Width="223" Cursor="None" FontSize="25" FontWeight="Bold"/>
-        <Button x:Name="DevelopersButton" Content="Developers" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="111" Height="30" FontSize="18" Padding="0"/>
-        <Button x:Name="UsersButton" Content="Users" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="111" Height="30" FontSize="18" Padding="0"/>
-        <Button x:Name="ProductsButton" Content="Products" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Width="111" Height="30" FontSize="18" Padding="0"/>
-        <Button x:Name="GroupsButton" Content="Groups" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Width="111" Height="30" FontSize="18" Padding="0"/>
-        <Button x:Name="ThreadsButton" Content="Threads" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top" Width="111" Height="30" FontSize="18" Padding="0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="72 px"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <DockPanel LastChildFill="False">
+            <Menu x:Name="Menu" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Background="#FF5D5D5D" Foreground="White" DockPanel.Dock="Top">
+                <MenuItem x:Name="UserNameButton" Header="UserName" Foreground="White">
+                    <MenuItem Header="Profile" Background="#FF5D5D5D" Foreground="White" BorderBrush="Black" BorderThickness=" 0 0 0 2"></MenuItem>
+                    <MenuItem Header="Sign out" Background="#FF5D5D5D" Foreground="White" BorderBrush="Black" BorderThickness=" 0 0 0 2"></MenuItem>
+                </MenuItem>
+            </Menu>
+
+            <DockPanel DockPanel.Dock="Top" LastChildFill="True">
+                <Button x:Name="StoreButton" Content="STORE"/>
+                <Button x:Name="LibraryButton" Content="LIBRARY"/>
+                <Button x:Name="GroupsButton" Content="GROUPS" Click="GroupsButton_Click"/>
+                <Button x:Name="ThreadsButton" Content="THREADS"/>
+                <Button x:Name="FriendsButton" Content="FRIENDS"/>
+            </DockPanel>
+        </DockPanel>
+
+        <Frame x:Name="FrameContent" Background="#FF5D5D5D" NavigationUIVisibility="Hidden" Margin="0,0,0,31" Grid.Row="1"/>
     </Grid>
 </Window>
