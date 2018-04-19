@@ -1,16 +1,16 @@
-﻿using DomainModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLibrary.EntityFramework;
 
 namespace DataAccessLibrary
 {
     public class ProductCommentService
     {
-        public bool CreateProductComment(ProductComment comment)
+        public bool CreateProductComment(product_comments comment)
         {
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
@@ -18,25 +18,25 @@ namespace DataAccessLibrary
             productIdParameter.DbType = System.Data.DbType.Int32;
             productIdParameter.IsNullable = false;
             productIdParameter.ParameterName = "@productId";
-            productIdParameter.Value = comment.ProductId;
+            productIdParameter.Value = comment.product_id;
 
             DbParameter userIdParameter = command.CreateParameter();
             userIdParameter.DbType = System.Data.DbType.Int32;
             userIdParameter.IsNullable = false;
             userIdParameter.ParameterName = "@userId";
-            userIdParameter.Value = comment.UserId;
+            userIdParameter.Value = comment.user_id;
 
             DbParameter textParameter = command.CreateParameter();
             textParameter.DbType = System.Data.DbType.String;
             textParameter.IsNullable = false;
             textParameter.ParameterName = "@text";
-            textParameter.Value = comment.Text;
+            textParameter.Value = comment.text;
 
             DbParameter markIdParameter = command.CreateParameter();
             markIdParameter.DbType = System.Data.DbType.Int32;
             markIdParameter.IsNullable = false;
             markIdParameter.ParameterName = "@markId";
-            markIdParameter.Value = comment.MarkId;
+            //markIdParameter.Value = comment.id;
 
             command.Parameters.AddRange(new DbParameter[] { productIdParameter, userIdParameter, textParameter, markIdParameter });
             command.CommandText = @"insert into dbo.product_comments
@@ -46,9 +46,9 @@ namespace DataAccessLibrary
             return SqlConncetionHelper.ExecuteCommands(command);
         }
 
-        public List<ProductComment> SelectAllProductComments()
+        public List<product_comments> SelectAllProductComments()
         {
-            List<ProductComment> comments = new List<ProductComment>();
+            List<product_comments> comments = new List<product_comments>();
 
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
@@ -59,23 +59,23 @@ namespace DataAccessLibrary
             while (reader.Read())
             {
                 comments.Add(
-                    new ProductComment
+                    new product_comments
                     {
-                        ProductCommentId = (int)reader["PC_id"],
-                        ProductId = (int)reader["Product_id"],
-                        UserId = (int)reader["User_id"],
-                        Text = reader["Text"].ToString(),
-                        DateSent = (DateTime)reader["Send_date"],
-                        MarkId = (int)reader["Mark_id"]
+                        PC_id = (int)reader["PC_id"],
+                        product_id = (int)reader["Product_id"],
+                        user_id = (int)reader["User_id"],
+                        text = reader["Text"].ToString(),
+                        send_date = (DateTime)reader["Send_date"],
+                        comment_mark = (int)reader["Mark_id"]
                     });
             }
 
             return comments;
         }
 
-        public List<ProductComment> SelectUserProductComments(User user)
+        public List<product_comments> SelectUserProductComments(user user)
         {
-            List<ProductComment> comments = new List<ProductComment>();
+            List<product_comments> comments = new List<product_comments>();
 
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
@@ -83,7 +83,7 @@ namespace DataAccessLibrary
             userIdParameter.DbType = System.Data.DbType.Int32;
             userIdParameter.IsNullable = false;
             userIdParameter.ParameterName = "@userId";
-            userIdParameter.Value = user.Id;
+            userIdParameter.Value = user.user_id;
             command.Parameters.Add(userIdParameter);
 
             command.CommandText = "select * from dbo.Product_comments where user_id = @userId";
@@ -92,14 +92,14 @@ namespace DataAccessLibrary
             while (reader.Read())
             {
                 comments.Add(
-                    new ProductComment
+                    new product_comments
                     {
-                        ProductCommentId = (int)reader["PC_id"],
-                        ProductId = (int)reader["Product_id"],
-                        UserId = (int)reader["User_id"],
-                        Text = reader["Text"].ToString(),
-                        DateSent = (DateTime)reader["Send_date"],
-                        MarkId = (int)reader["Mark_id"]
+                        PC_id = (int)reader["PC_id"],
+                        product_id = (int)reader["Product_id"],
+                        user_id = (int)reader["User_id"],
+                        text = reader["Text"].ToString(),
+                        send_date = (DateTime)reader["Send_date"],
+                        comment_mark = (int)reader["Mark_id"]
                     });
             }
 

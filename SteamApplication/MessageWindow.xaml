@@ -1,0 +1,57 @@
+﻿<Window
+    x:Class="SteamApplication.MessageWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SteamApplication"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MessageWindow"
+    Width="800"
+    Height="500"
+    mc:Ignorable="d">
+    <Grid>
+        <DataGrid
+            Name="FriendsDataGrid"
+            Width="772"
+            Height="384"
+            Margin="10,75,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            CanUserDeleteRows="True"
+            CanUserAddRows="False"
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="FriendName" Width="3*" Binding="{Binding nickname}"/>
+
+                
+                <DataGridTemplateColumn Header="Chat" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Chat" Click="Button_Click_Chat"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button
+            Name="btnNewMsg"
+            Width="133"
+            Height="60"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="New message" />
+        <Button
+            Name="btnClose"
+            Width="95"
+            Height="60"
+            Margin="687,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Close" />
+    </Grid>
+</Window>

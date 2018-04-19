@@ -23,6 +23,13 @@ namespace SteamApplication
         public MainWindow()
         {
             InitializeComponent();
+
+            FriendsWindow friendsWindow = new FriendsWindow();
+            friendsWindow.Show();
+
+            MessageWindow messageWindow = new MessageWindow();
+            messageWindow.Show();
+            //myFrame.NavigationService.Navigate(friendsPage);
         }
     }
 }

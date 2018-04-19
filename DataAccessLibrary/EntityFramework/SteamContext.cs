@@ -1,14 +1,19 @@
+using System;
+using System.Data.Entity;
+using System.Data.Entity.SqlServer;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using DataAccessLibrary;
+
+
 namespace DataAccessLibrary.EntityFramework
 {
-    using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
+    using SqlProviderServices = System.Data.Entity.SqlServer.SqlProviderServices;
 
     public partial class SteamContext : DbContext
     {
         public SteamContext()
-            : base("name=SteamContext")
+            : base("SteamContext")
         {
         }
 

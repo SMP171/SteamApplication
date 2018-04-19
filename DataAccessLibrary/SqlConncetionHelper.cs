@@ -17,10 +17,10 @@ namespace DataAccessLibrary
             {
                 //Connection.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionStringName"].ConnectionString;
                 DbProviderFactory providerFactory = DbProviderFactories.GetFactory(ConfigurationManager
-                                            .ConnectionStrings["DB171"].ProviderName);
+                                            .ConnectionStrings["SteamContext"].ProviderName);
                 DbConnection connection = providerFactory.CreateConnection();
 
-                connection.ConnectionString = ConfigurationManager.ConnectionStrings["DB171"].ConnectionString;
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["SteamContext"].ConnectionString;
                 return connection;
             }
         }
@@ -41,11 +41,12 @@ namespace DataAccessLibrary
                 connection.Open();
 
                 DbTransaction transaction = connection.BeginTransaction();
-
+                
                 try
                 {
                     foreach (var command in commands)
                     {
+                        command.Transaction = transaction;
                         command.ExecuteNonQuery();
                     }
 

@@ -1,0 +1,97 @@
+﻿<Window
+    x:Class="SteamApplication.FriendsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SteamApplication"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="FriendsWindow"
+    Width="800"
+    Height="500         "
+    mc:Ignorable="d">
+    <Grid>
+        <Button
+            Width="71"
+            Height="24"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Add friend"
+            FontSize="9" />
+        <DataGrid
+            Name="FriendsDataGrid"
+            Width="341"
+            Height="420"
+            Margin="10,39,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            CanUserDeleteRows="True"
+            CanUserAddRows="False"
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="FriendName" Width="3*" Binding="{Binding nickname}"/>
+                
+                <DataGridTemplateColumn Header="Info" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Info" Click="Button_Click_Info"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Send" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Send" Click="Button_Click_Send"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Del" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Del" Click="Button_Click_Delete_Row"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <!--<Button Name="btnDeleteCurRow" Content="Delete" HorizontalAlignment="Left" Margin="399,87,0,0" VerticalAlignment="Top" Width="87" Height="25" Click="btnDeleteCurRow_Click"/>-->
+
+
+        <!--<DataGrid Name="FriendsDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="420" Margin="10,39,0,0" VerticalAlignment="Top" Width="772" FontSize="9">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Friends" Width="3*"  />
+                <DataGridTemplateColumn Header="Info" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="" Click="Info"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Send message" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="" Click="Send"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="" Click="Delete"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+            </DataGrid.Columns>
+
+            <DataGridTemplateColumn></DataGridTemplateColumn>
+        </DataGrid>-->
+    </Grid>
+</Window>

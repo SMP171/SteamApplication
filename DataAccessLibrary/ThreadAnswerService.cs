@@ -1,13 +1,13 @@
-﻿using DomainModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using DataAccessLibrary.EntityFramework;
 
 namespace DataAccessLibrary
 {
     public class ThreadAnswerService
     {
-        public void CreateThreadAnswer(ThreadAnswer answer)
+        public void CreateThreadAnswer(thread_answers answer)
         {
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
@@ -15,19 +15,19 @@ namespace DataAccessLibrary
             threadIdParameter.DbType = System.Data.DbType.Int32;
             threadIdParameter.IsNullable = false;
             threadIdParameter.ParameterName = "@Thread_id";
-            threadIdParameter.Value = answer.ThreadId;
+            threadIdParameter.Value = answer.thread_id;
 
             DbParameter textParameter = command.CreateParameter();
             textParameter.DbType = System.Data.DbType.String;
             textParameter.IsNullable = false;
             textParameter.ParameterName = "@Text";
-            textParameter.Value = answer.Text;
+            textParameter.Value = answer.text;
 
             DbParameter userIdParameter = command.CreateParameter();
             userIdParameter.DbType = System.Data.DbType.Int32;
             userIdParameter.IsNullable = false;
             userIdParameter.ParameterName = "@UserId";
-            userIdParameter.Value = answer.UserId;
+            userIdParameter.Value = answer.user_id;
 
             command.Parameters.AddRange(new DbParameter[] { threadIdParameter, textParameter, userIdParameter });
 
@@ -37,9 +37,9 @@ namespace DataAccessLibrary
             SqlConncetionHelper.ExecuteCommands(command);
         }
 
-        public List<ThreadAnswer> GetAllThreadsAnswers()
+        public List<thread_answers> GetAllThreadsAnswers()
         {
-            List<ThreadAnswer> answers = new List<ThreadAnswer>();
+            List<thread_answers> answers = new List<thread_answers>();
 
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
             command.CommandText = "select * from thread_answers";
@@ -47,13 +47,13 @@ namespace DataAccessLibrary
             DbDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                answers.Add(new ThreadAnswer
+                answers.Add(new thread_answers
                 {
-                    Id = (int)reader["TA_id"],
-                    UserId = (int)reader["user_id"],
-                    ThreadId = (int)reader["thread_id"],
-                    Text = reader["text"].ToString(),
-                    SendDate = (DateTime)reader["send_date"]
+                    TA_id = (int)reader["TA_id"],
+                    user_id = (int)reader["user_id"],
+                    thread_id = (int)reader["thread_id"],
+                    text = reader["text"].ToString(),
+                    send_date = (DateTime)reader["send_date"]
                 });
             }
 
@@ -61,16 +61,16 @@ namespace DataAccessLibrary
         }
 
         // Для получения всех ответов конкретного Thread'а
-        public List<ThreadAnswer> GetThreadAnswers(Thread thread)
+        public List<thread_answers> GetThreadAnswers(thread thread)
         {
-            List<ThreadAnswer> answers = new List<ThreadAnswer>();
+            List<thread_answers> answers = new List<thread_answers>();
 
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
             DbParameter threadIdParameter = command.CreateParameter();
             threadIdParameter.DbType = System.Data.DbType.Int32;
             threadIdParameter.ParameterName = "@ThreadId";
-            threadIdParameter.Value = thread.Id;
+            threadIdParameter.Value = thread.thread_id;
 
             command.Parameters.Add(threadIdParameter);
             command.CommandText = @"select * from thread_answers where thread_id = @ThreadId";
@@ -78,13 +78,13 @@ namespace DataAccessLibrary
             DbDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                answers.Add(new ThreadAnswer
+                answers.Add(new thread_answers
                 {
-                    Id = (int)reader["TA_id"],
-                    UserId = (int)reader["user_id"],
-                    ThreadId = (int)reader["thread_id"],
-                    Text = reader["text"].ToString(),
-                    SendDate = (DateTime)reader["send_date"]
+                    TA_id = (int)reader["TA_id"],
+                    user_id = (int)reader["user_id"],
+                    thread_id = (int)reader["thread_id"],
+                    text = reader["text"].ToString(),
+                    send_date = (DateTime)reader["send_date"]
                 });
             }
 

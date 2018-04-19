@@ -1,17 +1,17 @@
-﻿using DomainModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLibrary.EntityFramework;
 
 namespace DataAccessLibrary
 {
     public class WalletService
     {
-        public void CreateWallet(Wallet wallet)
+        public void CreateWallet(wallet wallet)
         {
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
@@ -19,13 +19,13 @@ namespace DataAccessLibrary
             balanceParameter.DbType = System.Data.DbType.Decimal;
             balanceParameter.IsNullable = false;
             balanceParameter.ParameterName = "@balance";
-            balanceParameter.Value = wallet.Balance;
+            balanceParameter.Value = wallet.balance;
 
             DbParameter idParameter = command.CreateParameter();
             idParameter.DbType = System.Data.DbType.Int32;
             idParameter.IsNullable = false;
             idParameter.ParameterName = "@Id";
-            idParameter.Value = wallet.Id;
+            idParameter.Value = wallet.wallet_id;
 
             command.Parameters.AddRange(new DbParameter[] { balanceParameter, idParameter });
             command.CommandText = @"INSERT INTO [dbo].[wallets]
@@ -34,7 +34,7 @@ namespace DataAccessLibrary
             SqlConncetionHelper.ExecuteCommands(command);
         }
 
-        public void UpdateWallet(Wallet wallet)
+        public void UpdateWallet(wallet wallet)
         {
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
@@ -42,13 +42,13 @@ namespace DataAccessLibrary
             balanceParameter.DbType = System.Data.DbType.Decimal;
             balanceParameter.IsNullable = false;
             balanceParameter.ParameterName = "@balance";
-            balanceParameter.Value = wallet.Balance;
+            balanceParameter.Value = wallet.balance;
 
             DbParameter idParameter = command.CreateParameter();
             idParameter.DbType = System.Data.DbType.Int32;
             idParameter.IsNullable = false;
             idParameter.ParameterName = "@Id";
-            idParameter.Value = wallet.Id;
+            idParameter.Value = wallet.wallet_id;
 
             command.Parameters.AddRange(new DbParameter[] { balanceParameter, idParameter });
             command.CommandText = @"Update [dbo].[wallets]
@@ -58,9 +58,9 @@ namespace DataAccessLibrary
         }
 
 
-        public List<Wallet> SelectAllWallet()
+        public List<wallet> SelectAllWallet()
         {
-            List<Wallet> wallets = new List<Wallet>();
+            List<wallet> wallets = new List<wallet>();
 
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
             command.CommandText = "select * from wallets";
@@ -70,10 +70,10 @@ namespace DataAccessLibrary
             while (reader.Read())
             {
                 wallets.Add(
-                    new Wallet
+                    new wallet
                     {
-                        Id = (int)reader["wallet_id"],
-                        Balance = (decimal)reader["balance"],
+                        wallet_id = (int)reader["wallet_id"],
+                        balance = (decimal)reader["balance"],
                     });
             }
 

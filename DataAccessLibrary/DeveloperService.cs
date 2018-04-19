@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.Common;
-using DomainModel;
 using System.Configuration;
+using DataAccessLibrary.EntityFramework;
 
 namespace DataAccessLibrary
 {
     public class DeveloperService
     {
-        public void CreateDeveloper(Developer developer)
+        public void CreateDeveloper(developer developer)
         {
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
@@ -20,13 +20,13 @@ namespace DataAccessLibrary
             nameParameter.DbType = DbType.String;
             nameParameter.IsNullable = false;
             nameParameter.ParameterName = "@Name";
-            nameParameter.Value = developer.Name;
+            nameParameter.Value = developer.name;
 
             DbParameter webSiteParameter = command.CreateParameter();
             webSiteParameter.DbType = DbType.String;
             webSiteParameter.IsNullable = true;
             webSiteParameter.ParameterName = "@WebSite";
-            webSiteParameter.Value = developer.WebSite;
+            webSiteParameter.Value = developer.website;
 
             command.Parameters.AddRange(new DbParameter[] { webSiteParameter, webSiteParameter });
             command.CommandText = @"INSERT INTO [dbo].[developers]([name],[website]) VALUES
@@ -35,9 +35,9 @@ namespace DataAccessLibrary
             SqlConncetionHelper.ExecuteCommands(command);
         }
 
-        public List<Developer> SelectAllDevelopers()
+        public List<developer> SelectAllDevelopers()
         {
-            List<Developer> developers = new List<Developer>();
+            List<developer> developers = new List<developer>();
 
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
@@ -47,27 +47,27 @@ namespace DataAccessLibrary
 
             while (reader.Read())
             {
-                developers.Add(new Developer
+                developers.Add(new developer
                 {
-                    Id = (int)reader["Id"],
-                    Name = reader["Name"].ToString(),
-                    WebSite = reader["Website"].ToString(),
-                    IsDeleted = (bool)reader["IsDeleted"]
+                    developers_id = (int)reader["Id"],
+                    name = reader["Name"].ToString(),
+                    website = reader["Website"].ToString(),
+                    IsDeleted = (byte)reader["IsDeleted"]
                 });
             }
 
             return developers;
         }
 
-        public List<Product> SelectDeveloperProducts(Developer developer)
+        public List<product> SelectDeveloperProducts(developer developer)
         {
-            List<Product> products = new List<Product>();
+            List<product> products = new List<product>();
 
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
             DbParameter devIdParameter = command.CreateParameter();
             devIdParameter.DbType = DbType.Int32;
-            devIdParameter.Value = developer.Id;
+            devIdParameter.Value = developer.developers_id;
             devIdParameter.ParameterName = @"devId";
 
             command.CommandText = $@"select * from products where developer_id in (select developers_id from developers " +
@@ -77,29 +77,33 @@ namespace DataAccessLibrary
 
             while (reader.Read())
             {
-                products.Add(new Product
+                products.Add(new product
                 {
-                    ProductId = (int)reader["products_id"],
-                    Name = reader["name"].ToString(),
-                    Description = reader["description"].ToString(),
-                    DeveloperId = (int)reader["developer_id"],
-                    PositiveMarks = (int)reader["positive_marks"],
-                    NegativeMarks = (int)reader["negative_marks"],
-                    Price = (decimal)reader["price"],
-                    IsDeleted = (bool)reader["IsDeleted"],
-                    CreateDate = (DateTime)reader["create_date"]
+                    products_id = (int)reader["products_id"],
+                    name = reader["name"].ToString(),
+                    description = reader["description"].ToString(),
+                    devoloper_id = (int)reader["developer_id"],
+                    positive_marks = (int)reader["positive_marks"],
+                    negative_marks = (int)reader["negative_marks"],
+                    price = (decimal)reader["price"],
+                    IsDeleted = (byte)reader["IsDeleted"],
+                    create_date = (DateTime)reader["create_date"]
                 });
             }
 
             return products;
         }
 
-        public void DeleteDeveloper(Developer developer)
+        public void DeleteDeveloper(developer developer)
         {
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
-            command.CommandText = $@"UPDATE [dbo].[developers] SET IsDeleted = 1 WHERE developers_id = {developer.Id}";
+            command.CommandText = $@"UPDATE [dbo].[developers] SET IsDeleted = 1 WHERE developers_id = {developer.developers_id}";
 
             SqlConncetionHelper.ExecuteCommands(command);
         }
+    }
+
+    public class Developer
+    {
     }
 }

@@ -1,0 +1,12 @@
+E:\repos\SteamApplication\DomainModel\bin\Debug\DomainModel.dll
+E:\repos\SteamApplication\DomainModel\bin\Debug\DomainModel.pdb
+E:\repos\SteamApplication\DomainModel\obj\Debug\DomainModel.csprojResolveAssemblyReference.cache
+E:\repos\SteamApplication\DomainModel\obj\Debug\DomainModel.csproj.CoreCompileInputs.cache
+E:\repos\SteamApplication\DomainModel\obj\Debug\DomainModel.dll
+E:\repos\SteamApplication\DomainModel\obj\Debug\DomainModel.pdb
+C:\Users\ТогузбаевА\Desktop\SteamApplication\DomainModel\bin\Debug\DomainModel.dll
+C:\Users\ТогузбаевА\Desktop\SteamApplication\DomainModel\bin\Debug\DomainModel.pdb
+C:\Users\ТогузбаевА\Desktop\SteamApplication\DomainModel\obj\Debug\DomainModel.csprojResolveAssemblyReference.cache
+C:\Users\ТогузбаевА\Desktop\SteamApplication\DomainModel\obj\Debug\DomainModel.csproj.CoreCompileInputs.cache
+C:\Users\ТогузбаевА\Desktop\SteamApplication\DomainModel\obj\Debug\DomainModel.dll
+C:\Users\ТогузбаевА\Desktop\SteamApplication\DomainModel\obj\Debug\DomainModel.pdb

@@ -1,7 +1,11 @@
-﻿using DomainModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.Common;
+using System.Data.Entity;
+using System.Linq;
+using DataAccessLibrary.EntityFramework;
 
 namespace DataAccessLibrary
 {
@@ -9,35 +13,61 @@ namespace DataAccessLibrary
     {
         #region INSERT
 
-        public void CreateFriendMsg(FriendMessage friendMessage)
+        public DbConnection CreateConnection()
         {
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
+            DbProviderFactory providerFactory = DbProviderFactories.GetFactory(ConfigurationManager.ConnectionStrings["SteamContext"].ProviderName);
+            DbConnection connection = providerFactory.CreateConnection();
 
-            //создаем параметры
-            DbParameter userIdParameter = command.CreateParameter();
-            userIdParameter.DbType = System.Data.DbType.Int32;
-            userIdParameter.IsNullable = false;
-            userIdParameter.ParameterName = "@UserId";
-            userIdParameter.Value = friendMessage.UserId;
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["SteamContext"].ConnectionString;
+            return connection;
+        }
+        public void CreateFriendMsg(friend_messages friendMessage)
+        {
+            using (DbConnection connection = CreateConnection())
+            {
+                connection.Open();
+                DbTransaction transaction = connection.BeginTransaction();
 
-            DbParameter friendIdParameter = command.CreateParameter();
-            friendIdParameter.DbType = System.Data.DbType.Int32;
-            friendIdParameter.IsNullable = false;
-            friendIdParameter.ParameterName = "@FriendId";
-            friendIdParameter.Value = friendMessage.FriendId;
+                DbCommand command = connection.CreateCommand();
+                command.Transaction = transaction;
 
-            DbParameter messageParameter = command.CreateParameter();
-            messageParameter.DbType = System.Data.DbType.String;
-            messageParameter.IsNullable = false;
-            messageParameter.ParameterName = "@Message";
-            messageParameter.Value = friendMessage.Message;
+                try
+                {
+                    //создаем параметры
+                    DbParameter userIdParameter = command.CreateParameter();
+                    userIdParameter.DbType = System.Data.DbType.Int32;
+                    userIdParameter.IsNullable = false;
+                    userIdParameter.ParameterName = "@UserId";
+                    userIdParameter.Value = friendMessage.user_id;
 
-            command.Parameters.AddRange(new DbParameter[] { userIdParameter, friendIdParameter, messageParameter });
-            command.CommandText = @"INSERT INTO [dbo].[friend_messages]
+                    DbParameter friendIdParameter = command.CreateParameter();
+                    friendIdParameter.DbType = System.Data.DbType.Int32;
+                    friendIdParameter.IsNullable = false;
+                    friendIdParameter.ParameterName = "@FriendId";
+                    friendIdParameter.Value = friendMessage.friend_id;
+
+                    DbParameter messageParameter = command.CreateParameter();
+                    messageParameter.DbType = System.Data.DbType.String;
+                    messageParameter.IsNullable = false;
+                    messageParameter.ParameterName = "@Message";
+                    messageParameter.Value = friendMessage.message;
+
+                    command.Parameters.AddRange(new DbParameter[] { userIdParameter, friendIdParameter, messageParameter });
+
+                    command.CommandText = $@"INSERT INTO [dbo].[friend_messages]
                    ([user_id], [friend_id], [message]) VALUES
-                   (@UserId, @FriendId, @Message)";
+                   (@UserId, @FriendId, @Message, {friendMessage.send_date})";
 
-            SqlConncetionHelper.ExecuteCommands(command);
+                    command.ExecuteNonQuery();
+
+                    transaction.Commit();
+                }
+                catch (DbException ex)
+                {
+                    transaction.Rollback();
+                }
+            }
+
         }
         #endregion
 
@@ -45,31 +75,13 @@ namespace DataAccessLibrary
 
         #region SELECT
 
-        public List<FriendMessage> SelectAllFriendMessages()
+        public List<friend_messages> SelectAllFriendMessages()
         {
-            //достаем все письма
-            List<FriendMessage> friendMessages = new List<FriendMessage>();
-
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
-            command.CommandText = "select * from [dbo].[friend_messages]";
-
-            DbDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            using (SteamContext db = new SteamContext())
             {
-                friendMessages.Add(
-                    new FriendMessage
-                    {
-                        Id = (int)reader["FM_id"],
-                        UserId = (int)reader["user_id"],
-                        FriendId = (int)reader["friend_id"],
-                        Message = reader["message"].ToString(),
-                        SendDate = (DateTime)reader["send_date"]
-                    }
-                );
+                var result = db.Friend_messages.ToList();
+                return result;
             }
-
-            return friendMessages;
         }
         #endregion
 
