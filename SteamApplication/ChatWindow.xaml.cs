@@ -22,6 +22,8 @@ namespace SteamApplication
         public ChatWindow()
         {
             InitializeComponent();
+
+
         }
     }
 }

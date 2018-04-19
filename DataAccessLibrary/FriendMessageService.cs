@@ -94,5 +94,42 @@ namespace DataAccessLibrary
         //---------------------------------------------------------------------------------------------------------------
 
         //UPDATE не нужен
+
+        //---------------------------------------------------------------------------------------------------------------
+
+        public string GetChatBetweenTwoUsers(user user, user friend)
+        {
+            List<friend_messages> allMsgs = SelectAllFriendMessages();
+            List<friend_messages> chat = new List<friend_messages>();
+
+            foreach (var item in allMsgs)
+            {
+                if ((item.user_id == user.user_id && item.friend_id == friend.user_id) || (item.user_id == friend.user_id && item.friend_id == user.user_id))
+                {
+                    chat.Add(item);
+                }
+            }
+
+            string result = "";
+
+            foreach (var item in chat)
+            {
+                result = result + GetUserNameById(item.user_id) + "\n" + item.send_date + "\n" + item.message + "\n\n\n";
+            }
+
+            return result;
+        }
+
+        public string GetUserNameById(int user_id)
+        {
+            using (SteamContext db = new SteamContext())
+            {
+                var result = (from users in db.Users
+                             where users.user_id == user_id
+                             select users.nickname).ToString();
+
+                return result;
+            }
+        }
     }
 }
