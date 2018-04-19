@@ -1,21 +1,46 @@
-<<<<<<< HEAD
 C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\bin\Debug\SteamApplication.exe.config
-=======
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\SteamApplication.exe.config
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\SteamApplication.exe
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\SteamApplication.pdb
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.csprojResolveAssemblyReference.cache
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\MainWindow.g.cs
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\App.g.cs
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.cache
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.lref
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\MainWindow.baml
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.g.resources
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.Properties.Resources.resources
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.csproj.GenerateResource.Cache
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.csproj.CoreCompileInputs.cache
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.exe
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\SteamApplication.pdb
->>>>>>> master
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\bin\Debug\SteamApplication.exe
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\bin\Debug\SteamApplication.pdb
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\bin\Debug\DataAccessLibrary.dll
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\bin\Debug\DomainModel.dll
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\bin\Debug\EntityFramework.dll
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\bin\Debug\DataAccessLibrary.pdb
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\bin\Debug\DomainModel.pdb
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\bin\Debug\EntityFramework.xml
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\MainWindow.g.cs
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\Store.g.cs
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\App.g.cs
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.cache
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.lref
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\MainWindow.baml
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\Store.baml
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.g.resources
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.Properties.Resources.resources
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.csproj.GenerateResource.Cache
 C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.exe
 C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.pdb
+C:\Users\8\Documents\Visual Studio 2015\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.csprojResolveAssemblyReference.cache
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\bin\Debug\SteamApplication.exe.config
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\bin\Debug\SteamApplication.exe
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\bin\Debug\SteamApplication.pdb
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\bin\Debug\DataAccessLibrary.dll
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\bin\Debug\DomainModel.dll
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\bin\Debug\EntityFramework.dll
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\bin\Debug\DataAccessLibrary.pdb
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\bin\Debug\DataAccessLibrary.dll.config
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\bin\Debug\DomainModel.pdb
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\bin\Debug\EntityFramework.xml
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.csprojResolveAssemblyReference.cache
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\MainWindow.g.cs
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\Store.g.cs
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\App.g.cs
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.cache
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.lref
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\MainWindow.baml
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\Store.baml
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.g.resources
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.Properties.Resources.resources
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.csproj.GenerateResource.Cache
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.csproj.CoreCompileInputs.cache
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.exe
+C:\Users\8\Desktop\Projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.pdb

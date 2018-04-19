@@ -82,7 +82,7 @@ namespace DataAccessLibrary
             tempData.AcceptChanges();
 
 
-            if(result == 0 || result == -1)
+            if (result == 0 || result == -1)
             {
                 return false;
             }
@@ -94,29 +94,36 @@ namespace DataAccessLibrary
 
         public List<Product> SelectAllProducts()
         {
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
-
             List<Product> products = new List<Product>();
 
-            command.CommandText = "select * from dbo.Products";
-
-            DbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            using (var connection = SqlConncetionHelper.Connection)
             {
-                products.Add(
-                    new Product
-                    {
-                        ProductId = (int)reader["Product_id"],
-                        Name = reader["Name"].ToString(),
-                        Description = reader["Description"].ToString(),
-                        PositiveMarks = (int)reader["Positive_Marks"],
-                        NegativeMarks = (int)reader["Negative_Marks"],
-                        DeveloperId = (int)reader["Developer_id"],
-                        Price = (decimal)reader["Price"],
-                        IsDeleted = (bool)reader["IsDeleted"],
-                        CreateDate = (DateTime)reader["create_date"]
-                    });
+                connection.Open();
+                DbCommand command = connection.CreateCommand();
+                command.CommandText = "select * from dbo.Products";
+                
+                DbDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    products.Add(
+                        new Product
+                        {
+                            ProductId = (int)reader["Product_id"],
+                            Name = reader["Name"].ToString(),
+                            Description = reader["Description"].ToString(),
+                            PositiveMarks = (int)reader["Positive_Marks"],
+                            NegativeMarks = (int)reader["Negative_Marks"],
+                            DeveloperId = (int)reader["Developer_id"],
+                            Price = (decimal)reader["Price"],
+                            IsDeleted = (bool)reader["IsDeleted"],
+                            CreateDate = (DateTime)reader["create_date"]
+                        });
+                }
             }
+
+
+
+
             return products;
         }
 

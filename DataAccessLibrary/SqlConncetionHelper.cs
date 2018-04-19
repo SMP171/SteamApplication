@@ -46,6 +46,8 @@ namespace DataAccessLibrary
                 {
                     foreach (var command in commands)
                     {
+                        command.Connection = connection;
+                        command.Transaction = transaction;
                         command.ExecuteNonQuery();
                     }
 
