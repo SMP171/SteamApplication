@@ -18,22 +18,24 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             AutoGenerateColumns="False"
-            CanUserDeleteRows="True"
             CanUserAddRows="False"
-            >
+            CanUserDeleteRows="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="FriendName" Width="3*" Binding="{Binding nickname}"/>
+                <DataGridTextColumn
+                    Width="3*"
+                    Binding="{Binding nickname}"
+                    Header="FriendName" />
 
-                
-                <DataGridTemplateColumn Header="Chat" Width="*">
+
+                <DataGridTemplateColumn Width="*" Header="Chat">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Chat" Click="Button_Click_Chat"/>
+                            <Button Click="Button_Click_Chat" Content="Chat" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                
+
 
             </DataGrid.Columns>
         </DataGrid>
@@ -52,6 +54,7 @@
             Margin="687,10,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            Click="btnClose_Click"
             Content="Close" />
     </Grid>
 </Window>

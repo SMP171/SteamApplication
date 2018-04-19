@@ -61,7 +61,6 @@ E:\SteamApplication\SteamApplication\bin\Debug\SteamApplication.exe.config
 E:\SteamApplication\SteamApplication\bin\Debug\SteamApplication.exe
 E:\SteamApplication\SteamApplication\bin\Debug\SteamApplication.pdb
 E:\SteamApplication\SteamApplication\bin\Debug\DataAccessLibrary.dll
-E:\SteamApplication\SteamApplication\bin\Debug\EntityFramework.dll
 E:\SteamApplication\SteamApplication\bin\Debug\DataAccessLibrary.pdb
 E:\SteamApplication\SteamApplication\bin\Debug\DataAccessLibrary.dll.config
 E:\SteamApplication\SteamApplication\bin\Debug\EntityFramework.xml
@@ -98,3 +97,7 @@ E:\SteamApplication\SteamApplication\bin\Debug\ru\EntityFramework.SqlServer.reso
 E:\SteamApplication\SteamApplication\obj\Debug\ChatWindow.baml
 E:\SteamApplication\SteamApplication\obj\Debug\FriendsWindow.baml
 E:\SteamApplication\SteamApplication\obj\Debug\MessageWindow.baml
+E:\SteamApplication\SteamApplication\obj\Debug\LoginScreenWindow.g.cs
+E:\SteamApplication\SteamApplication\obj\Debug\UserProfilePage.g.cs
+E:\SteamApplication\SteamApplication\obj\Debug\LoginScreenWindow.baml
+E:\SteamApplication\SteamApplication\obj\Debug\UserProfilePage.baml

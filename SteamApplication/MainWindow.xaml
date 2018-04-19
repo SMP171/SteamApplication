@@ -22,63 +22,72 @@
             FontWeight="Bold"
             RenderTransformOrigin="0.539,0.526" />
         <Button
-            x:Name="DevelopersButton"
+            x:Name="btnStore"
             Width="111"
             Height="30"
-            Margin="10,53,0,0"
+            Margin="12,85,0,0"
             Padding="0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="Developers"
+            Content="Store"
             FontSize="18" />
         <Button
-            x:Name="UsersButton"
+            x:Name="btnLibrary"
             Width="111"
             Height="30"
-            Margin="10,88,0,0"
+            Margin="128,85,0,0"
             Padding="0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="Users"
+            Content="Library"
             FontSize="18" />
         <Button
-            x:Name="ProductsButton"
+            x:Name="btnThreads"
             Width="111"
             Height="30"
-            Margin="10,123,0,0"
-            Padding="0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Products"
-            FontSize="18" />
-        <Button
-            x:Name="GroupsButton"
-            Width="111"
-            Height="30"
-            Margin="10,158,0,0"
-            Padding="0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Groups"
-            FontSize="18" />
-        <Button
-            x:Name="ThreadsButton"
-            Width="111"
-            Height="30"
-            Margin="10,193,0,0"
+            Margin="244,85,0,0"
             Padding="0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content="Threads"
             FontSize="18" />
+        <Button
+            x:Name="btnFriends"
+            Width="111"
+            Height="30"
+            Margin="360,85,0,0"
+            Padding="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Friends"
+            FontSize="18" />
+        <Button
+            x:Name="btnGroups"
+            Width="111"
+            Height="30"
+            Margin="476,85,0,0"
+            Padding="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Groups"
+            FontSize="18" />
         <Frame
             x:Name="myFrame"
-            Width="656"
-            Height="506"
-            Margin="123,53,0,0"
+            Width="769"
+            Height="439"
+            Margin="10,120,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content="Frame" />
+        <Button
+            Name="btnUserProfile"
+            Width="111"
+            Height="25"
+            Margin="12,53,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="btnUserProfile_Click"
+            Content="UserName" />
 
     </Grid>
 </Window>

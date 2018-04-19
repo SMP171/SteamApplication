@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\SteamApplication\SteamApplication\App.xaml
-4-1108907084
+6324665850
 
-12-994867882
+10-861428374
 17-1575200512
-ChatWindow.xaml;FriendsWindow.xaml;MainWindow.xaml;MessageWindow.xaml;
+ChatWindow.xaml;FriendsWindow.xaml;LoginScreenWindow.xaml;MainWindow.xaml;MessageWindow.xaml;UserProfilePage.xaml;
 
-True
+False
 

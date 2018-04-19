@@ -26,38 +26,49 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             AutoGenerateColumns="False"
-            CanUserDeleteRows="True"
             CanUserAddRows="False"
-            >
+            CanUserDeleteRows="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="FriendName" Width="3*" Binding="{Binding nickname}"/>
-                
-                <DataGridTemplateColumn Header="Info" Width="*">
+                <DataGridTextColumn
+                    Width="3*"
+                    Binding="{Binding nickname}"
+                    Header="FriendName" />
+
+                <DataGridTemplateColumn Width="*" Header="Info">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Info" Click="Button_Click_Info"/>
+                            <Button Click="Button_Click_Info" Content="Info" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Header="Send" Width="*">
+                <DataGridTemplateColumn Width="*" Header="Send">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Send" Click="Button_Click_Send"/>
+                            <Button Click="Button_Click_Send" Content="Send" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Header="Del" Width="*">
+                <DataGridTemplateColumn Width="*" Header="Del">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Del" Click="Button_Click_Delete_Row"/>
+                            <Button Click="Button_Click_Delete_Row" Content="Del" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
+
             </DataGrid.Columns>
         </DataGrid>
+        <Button
+            Name="btnClose"
+            Width="75"
+            Height="24"
+            Margin="275,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="btnClose_Click"
+            Content="Close" />
 
 
         <!--<Button Name="btnDeleteCurRow" Content="Delete" HorizontalAlignment="Left" Margin="399,87,0,0" VerticalAlignment="Top" Width="87" Height="25" Click="btnDeleteCurRow_Click"/>-->

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccessLibrary;
+using DataAccessLibrary.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +21,40 @@ namespace SteamApplication
     /// </summary>
     public partial class ChatWindow : Window
     {
-        public ChatWindow()
+        private user user;
+        private user friendUser;
+
+        public ChatWindow(user tmpUser, user tmpFriendUser)
         {
             InitializeComponent();
 
+            user = tmpUser;
+            friendUser = tmpFriendUser;
 
+            lblFriendName.Content = "Friend: " + friendUser.nickname;
+
+            FriendMessageService friendMessageService = new FriendMessageService();
+            string result = friendMessageService.GetChatBetweenTwoUsers(user, friendUser);
+
+            txtBox2.Text = result;
+        }
+
+        private void btnSend_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtBox.Text != "")
+            {
+                friend_messages friend_Messages = new friend_messages() { user_id = user.user_id, friend_id = friendUser.user_id, message = txtBox.Text, send_date = DateTime.Now};
+
+
+                FriendMessageService friendMessageService = new FriendMessageService();
+
+                friendMessageService.CreateFriendMsg(friend_Messages);
+
+                //FriendMessageService friendMessageService = new FriendMessageService();
+                string result = friendMessageService.GetChatBetweenTwoUsers(user, friendUser);
+
+                txtBox2.Text = result;
+            }
         }
     }
 }

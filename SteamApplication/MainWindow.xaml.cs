@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataAccessLibrary.EntityFramework;
 
 namespace SteamApplication
 {
@@ -20,16 +21,27 @@ namespace SteamApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private user user;
+        public MainWindow(user tmpUser)
         {
             InitializeComponent();
+            user = tmpUser;
+            btnUserProfile.Content = tmpUser.nickname;
 
-            FriendsWindow friendsWindow = new FriendsWindow();
-            friendsWindow.Show();
+            
 
-            MessageWindow messageWindow = new MessageWindow();
-            messageWindow.Show();
-            //myFrame.NavigationService.Navigate(friendsPage);
+            //FriendsWindow friendsWindow = new FriendsWindow();
+            //friendsWindow.Show();
+
+            //MessageWindow messageWindow = new MessageWindow();
+            //messageWindow.Show();
+
+        }
+
+        private void btnUserProfile_Click(object sender, RoutedEventArgs e)
+        {
+            UserProfilePage userProfilePage = new UserProfilePage(user);
+            myFrame.NavigationService.Navigate(userProfilePage);
         }
     }
 }

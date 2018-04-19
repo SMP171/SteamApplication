@@ -56,7 +56,11 @@ namespace DataAccessLibrary
 
                     command.CommandText = $@"INSERT INTO [dbo].[friend_messages]
                    ([user_id], [friend_id], [message]) VALUES
-                   (@UserId, @FriendId, @Message, {friendMessage.send_date})";
+                   (@UserId, @FriendId, @Message)";
+
+                   // command.CommandText = $@"INSERT INTO [dbo].[friend_messages]
+                   //([user_id], [friend_id], [message]) VALUES
+                   //(@UserId, @FriendId, @Message, {friendMessage.send_date.ToString("yyyy-MM-dd HH:mm:ss")})";
 
                     command.ExecuteNonQuery();
 
@@ -126,9 +130,9 @@ namespace DataAccessLibrary
             {
                 var result = (from users in db.Users
                              where users.user_id == user_id
-                             select users.nickname).ToString();
+                             select users.nickname).ToList();
 
-                return result;
+                return result[0];
             }
         }
     }
