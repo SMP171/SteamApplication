@@ -3,13 +3,13 @@ using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-=======
->>>>>>> master
+//=======
+//>>>>>>> master
 
 namespace DataAccessLibrary
 {

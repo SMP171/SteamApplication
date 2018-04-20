@@ -1,9 +1,11 @@
-﻿using DomainModel;
+﻿using DataAccessLibrary.EntityFramework;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
+using System.Linq;
 
 namespace DataAccessLibrary
 {
@@ -93,34 +95,35 @@ namespace DataAccessLibrary
         {
             List<Product> products = new List<Product>();
 
-            using (var connection = SqlConncetionHelper.Connection)
-            {
-                connection.Open();
-                DbCommand command = connection.CreateCommand();
-                command.CommandText = "select * from dbo.Products";
-                
-                DbDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    products.Add(
-                        new Product
-                        {
-                            ProductId = (int)reader["Product_id"],
-                            Name = reader["Name"].ToString(),
-                            Description = reader["Description"].ToString(),
-                            PositiveMarks = (int)reader["Positive_Marks"],
-                            NegativeMarks = (int)reader["Negative_Marks"],
-                            DeveloperId = (int)reader["Developer_id"],
-                            Price = (decimal)reader["Price"],
-                            IsDeleted = (bool)reader["IsDeleted"],
-                            CreateDate = (DateTime)reader["create_date"]
-                        });
-                }
-            }
+            SteamContext ctx = new SteamContext();
 
+            products = ctx.Products.ToList();
 
+            //using (var connection = SqlConncetionHelper.Connection)
+            //{
+            //    connection.Open();
+            //    DbCommand command = connection.CreateCommand();
+            //    command.CommandText = "select * from dbo.products";
 
-
+            //    DbDataReader reader = command.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        products.Add(
+            //            new Product
+            //            {
+            //                ProductId = (int)reader["products_id"],
+            //                Name = (string)reader["name"],
+            //                Description = (string)reader["description"],
+            //                PositiveMarks = (int)reader["positive_marks"],
+            //                NegativeMarks = (int)reader["negative_marks"],
+            //                DeveloperId = (int)reader["devoloper_id"],
+            //                Rating = (int)reader["rating"],
+            //                Price = (decimal)reader["price"],
+            //                IsDeleted = (bool)reader["IsDeleted"],
+            //                CreateDate = (DateTime)reader["create_date"]
+            //            });
+            //    }
+            //}
             return products;
         }
 
