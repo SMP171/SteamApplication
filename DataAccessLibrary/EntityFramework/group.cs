@@ -11,8 +11,8 @@ namespace DataAccessLibrary.EntityFramework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public group()
         {
-            group_comments = new HashSet<group_comments>();
-            groups_users = new HashSet<groups_users>();
+            Group_comments = new HashSet<group_comments>();
+            Groups_users = new HashSet<groups_users>();
         }
 
         [Key]
@@ -30,11 +30,11 @@ namespace DataAccessLibrary.EntityFramework
         public byte IsDeleted { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<group_comments> group_comments { get; set; }
+        public virtual ICollection<group_comments> Group_comments { get; set; }
 
         public virtual user User { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<groups_users> groups_users { get; set; }
+        public virtual ICollection<groups_users> Groups_users { get; set; }
     }
 }

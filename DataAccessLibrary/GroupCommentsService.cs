@@ -10,7 +10,7 @@ namespace DataAccessLibrary
 {
     public class GroupCommentsService
     {
-        public void CreateGroupComment(GroupComments groupComment)
+        public void CreateGroupComment(group_comments groupComment)
         {
             #region Подключенный режим
             //DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
@@ -53,9 +53,9 @@ namespace DataAccessLibrary
 
             DataTable table = ds.Tables[0];
             DataRow newRow = table.NewRow();
-            newRow["group_id"] = groupComment.GroupId;
-            newRow["user_id"] = groupComment.UserId;
-            newRow["comment_text"] = groupComment.Text;
+            newRow["group_id"] = groupComment.Group_id;
+            newRow["user_id"] = groupComment.User_id;
+            newRow["comment_text"] = groupComment.Comment_text;
 
             table.Rows.Add(newRow);
             adapter.Update(ds);
@@ -102,9 +102,9 @@ namespace DataAccessLibrary
         /// </summary>
         /// <param name="group">Группа, комментарии которой нужно получить</param>
         /// <returns></returns>
-        public List<GroupComments> SelectGroupComments(Group group)
+        public List<group_comments> SelectGroupComments(group group)
         {
-            List<GroupComments> groupComments = new List<GroupComments>();
+            List<group_comments> groupComments = new List<group_comments>();
 
             using (var connection = SqlConncetionHelper.Connection)
             {
@@ -114,7 +114,7 @@ namespace DataAccessLibrary
                 DbParameter groupParameter = command.CreateParameter();
                 groupParameter.DbType = DbType.Int32;
                 groupParameter.ParameterName = "@GroupId";
-                groupParameter.Value = group.Id;
+                groupParameter.Value = group.Group_id;
 
                 command.Parameters.Add(groupParameter);
                 command.CommandText = "select * from group_comments" +
@@ -124,13 +124,13 @@ namespace DataAccessLibrary
 
                 while (reader.Read())
                 {
-                    GroupComments comment = new GroupComments()
+                    group_comments comment = new group_comments()
                     {
-                        Id = (int)reader["gc_id"],
-                        UserId = (int)reader["user_id"],
-                        GroupId = (int)reader["group_id"],
-                        Text = reader["comment_text"].ToString(),
-                        SendDate = (DateTime)reader["send_date"]
+                        Gc_id = (int)reader["gc_id"],
+                        User_id = (int)reader["user_id"],
+                        Group_id = (int)reader["group_id"],
+                        Comment_text = reader["comment_text"].ToString(),
+                        Send_date = (DateTime)reader["send_date"]
                     };
                     comment.User = GetGroupCommentUser(comment);
 
@@ -141,9 +141,9 @@ namespace DataAccessLibrary
             return groupComments;
         }
 
-        public User GetGroupCommentUser(GroupComments comment)
+        public user GetGroupCommentUser(group_comments comment)
         {
-            User user = new User();
+            user user = new user();
 
             using (var connection = SqlConncetionHelper.Connection)
             {
@@ -153,7 +153,7 @@ namespace DataAccessLibrary
                 DbParameter groupParameter = command.CreateParameter();
                 groupParameter.DbType = DbType.Int32;
                 groupParameter.ParameterName = "@userId";
-                groupParameter.Value = comment.UserId;
+                groupParameter.Value = comment.User_id;
 
                 command.Parameters.Add(groupParameter);
                 command.CommandText = "select * from users" +
@@ -162,13 +162,13 @@ namespace DataAccessLibrary
                 DbDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    user.Id = (int)reader["user_id"];
-                    user.Nickname = reader["nickname"].ToString();
-                    user.Password = reader["password"].ToString();
-                    user.RegisterDate = DateTime.Parse(reader["register_date"].ToString());
-                    user.WalletId = (int)reader["wallet_id"];
-                    user.StatusId = (int)reader["status_id"];
-                    user.IsDeleted = Convert.ToBoolean(reader["IsDeleted"]);
+                    user.user_id = (int)reader["user_id"];
+                    user.nickname = reader["nickname"].ToString();
+                    user.password = reader["password"].ToString();
+                    user.register_date = DateTime.Parse(reader["register_date"].ToString());
+                    user.wallet_id = (int)reader["wallet_id"];
+                    user.status_id = (int)reader["status_id"];
+                    user.IsDeleted = (byte)(reader["IsDeleted"]);
                 }
             }
 

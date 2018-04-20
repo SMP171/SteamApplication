@@ -86,16 +86,16 @@
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="SenderColumn" 
                                     Width="Auto"  
-                                    Binding="{Binding User}" 
+                                    Binding="{Binding User.nickname}" 
                                     Header="Sender"/>
                 <DataGridTextColumn x:Name="DateColumn"
                                     Width="Auto"
-                                    Binding="{Binding SendDate, StringFormat=d}"
+                                    Binding="{Binding Send_date, StringFormat=d}"
                                     Header="Send date"/>
                 <DataGridTemplateColumn Header="Comment">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Text}"/>
+                            <TextBlock Text="{Binding Comment_text}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -105,7 +105,7 @@
         <!-- Список подписчиков -->
         <DataGrid x:Name="MembersDataGrid" Grid.Row="3" Grid.Column="2" ColumnWidth="*">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Nickname}" Header="Members"/>
+                <DataGridTextColumn Binding="{Binding nickname}" Header="Members"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

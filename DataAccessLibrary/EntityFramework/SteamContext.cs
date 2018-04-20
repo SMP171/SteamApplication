@@ -61,12 +61,12 @@ namespace DataAccessLibrary.EntityFramework
                 .IsUnicode(false);
 
             modelBuilder.Entity<group>()
-                .HasMany(e => e.group_comments)
+                .HasMany(e => e.Group_comments)
                 .WithRequired(e => e.Group)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<group>()
-                .HasMany(e => e.groups_users)
+                .HasMany(e => e.Groups_users)
                 .WithRequired(e => e.group)
                 .WillCascadeOnDelete(false);
 

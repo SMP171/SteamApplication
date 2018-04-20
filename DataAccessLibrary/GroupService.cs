@@ -10,7 +10,7 @@ namespace DataAccessLibrary
 {
     public class GroupService
     {
-        public void CreateGroup(Group group)
+        public void CreateGroup(group group)
         {
             #region Подключенный режим
             //DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
@@ -47,8 +47,8 @@ namespace DataAccessLibrary
 
             DataTable table = ds.Tables[0];
             DataRow newRow = table.NewRow();
-            newRow["group_name"] = group.Name;
-            newRow["user_id"] = group.UserId;
+            newRow["group_name"] = group.Group_name;
+            newRow["user_id"] = group.User_id;
             newRow["created_date"] = DateTime.Now;
             table.Rows.Add(newRow);
 
@@ -57,9 +57,9 @@ namespace DataAccessLibrary
             #endregion
         }
 
-        public List<Group> SelectAllGroups()
+        public List<group> SelectAllGroups()
         {
-            List<Group> groups = new List<Group>();
+            List<group> groups = new List<group>();
 
             using (var connection = SqlConncetionHelper.Connection)
             {
@@ -72,15 +72,15 @@ namespace DataAccessLibrary
 
                 while (reader.Read())
                 {
-                    Group newGroup = new Group()
+                    group newGroup = new group()
                     {
-                        Id = (int)reader["group_id"],
-                        Name = reader["group_name"].ToString(),
-                        CreatedDate = DateTime.Parse(reader["created_date"].ToString()),
-                        UserId = (int)reader["user_id"],
-                        IsDeleted = Convert.ToBoolean(reader["IsDeleted"]),
+                        Group_id = (int)reader["group_id"],
+                        Group_name = reader["group_name"].ToString(),
+                        Created_date = DateTime.Parse(reader["created_date"].ToString()),
+                        User_id = (int)reader["user_id"],
+                        IsDeleted = (byte)(reader["IsDeleted"]),
                     };
-                    newGroup.Members = SelectGroupMembers(newGroup);
+                    //newGroup.Members = SelectGroupMembers(newGroup);
 
                     groups.Add(newGroup);
                 }
@@ -130,9 +130,9 @@ namespace DataAccessLibrary
             }
         }
 
-        public List<User> SelectGroupMembers(Group group)
+        public List<user> SelectGroupMembers(group group)
         {
-            List<User> members = new List<User>();
+            List<user> members = new List<user>();
 
             using (var connection = SqlConncetionHelper.Connection)
             {
@@ -142,7 +142,7 @@ namespace DataAccessLibrary
                 DbParameter userIdParameter = command.CreateParameter();
                 userIdParameter.DbType = DbType.Int32;
                 userIdParameter.ParameterName = "@GroupId";
-                userIdParameter.Value = group.Id;
+                userIdParameter.Value = group.Group_id;
 
                 command.Parameters.Add(userIdParameter);
                 command.CommandText = "exec GetGroupMembers @GroupId";
@@ -150,15 +150,15 @@ namespace DataAccessLibrary
 
                 while (reader.Read())
                 {
-                    members.Add(new User
+                    members.Add(new user
                     {
-                        Id = (int)reader["user_id"],
-                        Nickname = reader["nickname"].ToString(),
-                        Password = reader["password"].ToString(),
-                        RegisterDate = DateTime.Parse(reader["register_date"].ToString()),
-                        WalletId = (int)reader["wallet_id"],
-                        StatusId = (int)reader["status_id"],
-                        IsDeleted = Convert.ToBoolean(reader["IsDeleted"])
+                        user_id = (int)reader["user_id"],
+                        nickname = reader["nickname"].ToString(),
+                        password = reader["password"].ToString(),
+                        register_date = DateTime.Parse(reader["register_date"].ToString()),
+                        wallet_id = (int)reader["wallet_id"],
+                        status_id = (int)reader["status_id"],
+                        IsDeleted = (byte)(reader["IsDeleted"])
                     });
                 }
             }
@@ -166,14 +166,14 @@ namespace DataAccessLibrary
             return members;
         }
 
-        public bool DeleteGroup(Group group)
+        public bool DeleteGroup(group group)
         {
             DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
 
             DbParameter groupIdParameter = command.CreateParameter();
             groupIdParameter.DbType = DbType.Int32;
             groupIdParameter.ParameterName = "@GroupId";
-            groupIdParameter.Value = group.Id;
+            groupIdParameter.Value = group.Group_id;
 
             command.Parameters.Add(groupIdParameter);
             command.CommandText = "update groups set IsDeleted = 1 where group_id = @GroupId";
@@ -181,9 +181,9 @@ namespace DataAccessLibrary
             return SqlConncetionHelper.ExecuteCommands(command);
         }
 
-        public Group FindGroupByName(string Name)
+        public group FindGroupByName(string Name)
         {
-            Group group = new Group();
+            group group = new group();
 
             using (var connection = SqlConncetionHelper.Connection)
             {
@@ -201,18 +201,18 @@ namespace DataAccessLibrary
                 DbDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    group.Id = (int)reader["group_id"];
-                    group.Name = reader["group_name"].ToString();
-                    group.CreatedDate = DateTime.Parse(reader["created_date"].ToString());
-                    group.UserId = (int)reader["user_id"];
-                    group.IsDeleted = Convert.ToBoolean(reader["IsDeleted"]);
+                    group.Group_id = (int)reader["group_id"];
+                    group.Group_name = reader["group_name"].ToString();
+                    group.Created_date = DateTime.Parse(reader["created_date"].ToString());
+                    group.User_id = (int)reader["user_id"];
+                    group.IsDeleted = (byte)(reader["IsDeleted"]);
                 }
             }
 
             return group;
         }
 
-        public void AddUserToGroup(Group group, User user)
+        public void AddUserToGroup(group group, user user)
         {
             using (var connection = SqlConncetionHelper.Connection)
             {
@@ -221,12 +221,12 @@ namespace DataAccessLibrary
 
                 DbParameter userIdParameter = command.CreateParameter();
                 userIdParameter.DbType = DbType.Int32;
-                userIdParameter.Value = user.Id;
+                userIdParameter.Value = user.user_id;
                 userIdParameter.ParameterName = "@userId";
 
                 DbParameter groupIdParameter = command.CreateParameter();
                 groupIdParameter.DbType = DbType.Int32;
-                groupIdParameter.Value = group.Id;
+                groupIdParameter.Value = group.Group_id;
                 groupIdParameter.ParameterName = "@groupId";
 
                 command.Parameters.AddRange(new DbParameter[] { userIdParameter, groupIdParameter });
@@ -236,7 +236,7 @@ namespace DataAccessLibrary
             }
         }
 
-        public void DeleteUserFromGroup(Group group, User user)
+        public void DeleteUserFromGroup(group group, user user)
         {
             using (var connection = SqlConncetionHelper.Connection)
             {
@@ -245,12 +245,12 @@ namespace DataAccessLibrary
 
                 DbParameter userIdParameter = command.CreateParameter();
                 userIdParameter.DbType = DbType.Int32;
-                userIdParameter.Value = user.Id;
+                userIdParameter.Value = user.user_id;
                 userIdParameter.ParameterName = "@userId";
 
                 DbParameter groupIdParameter = command.CreateParameter();
                 groupIdParameter.DbType = DbType.Int32;
-                groupIdParameter.Value = group.Id;
+                groupIdParameter.Value = group.Group_id;
                 groupIdParameter.ParameterName = "@groupId";
 
                 command.Parameters.AddRange(new DbParameter[] { userIdParameter, groupIdParameter });

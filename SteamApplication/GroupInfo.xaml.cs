@@ -1,4 +1,5 @@
 ﻿using DataAccessLibrary;
+using DataAccessLibrary.EntityFramework;
 using DomainModel;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,11 @@ namespace SteamApplication
     public partial class GroupInfo : Page
     {
         private Frame MainFrame { get; set; }
-        private Group Group { get; set; }
+        private group Group { get; set; }
+        private List<user> Members { get; set; }
         private GroupService Service { get; set; }
 
-        public GroupInfo(Frame frame, Group group)
+        public GroupInfo(Frame frame, group group)
         {
             InitializeComponent();
 
@@ -40,6 +42,7 @@ namespace SteamApplication
             //    SubcribeButton.Visibility = Visibility.Collapsed;
             //}
 
+            Members = Service.SelectGroupMembers(Group);
             UpdateUIData();
         }
 
@@ -48,14 +51,15 @@ namespace SteamApplication
             GroupCommentsService service = new GroupCommentsService();
 
             GroupCommentsDataGrid.ItemsSource = service.SelectGroupComments(Group);
-            MembersDataGrid.ItemsSource = Group.Members;
+            MembersDataGrid.ItemsSource = Members;
 
-            GroupNameLabel.Content = Group.Name;
-            CreatedDateLabel.Content = $"Created date: {Group.CreatedDate.ToShortDateString()}";
-            CreatorLabel.Content = $"Creator: {Group.Members.SingleOrDefault(x => x.Id == Group.UserId).Nickname}";
-            MembersCountLabel.Content = $"Members count: {Group.Members.Count}";
+            GroupNameLabel.Content = Group.Group_name;
+            CreatedDateLabel.Content = $"Created date: {Group.Created_date.ToShortDateString()}";
+            CreatorLabel.Content = $"Creator: " +
+                $"{Members.SingleOrDefault(x => x.user_id == Group.User_id).nickname}";
+            MembersCountLabel.Content = $"Members count: {Members.Count}";
 
-            if (Group.Members.Contains(AuthenticationService.CurrentUser))
+            if (Members.Contains(AuthenticationService.CurrentUser))
                 SubcribeButton.Content = "UNSUBSCRIBE";
             else
                 SubcribeButton.Content = "SUBSCRIBE";
@@ -63,7 +67,7 @@ namespace SteamApplication
 
         private void SubcribeButtonClick(object sender, RoutedEventArgs e)
         {
-            if (Group.Members.Contains(AuthenticationService.CurrentUser))
+            if (Members.Contains(AuthenticationService.CurrentUser))
             {
                 Service.DeleteUserFromGroup(Group, AuthenticationService.CurrentUser);
             }

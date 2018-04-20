@@ -1,4 +1,5 @@
-﻿using DomainModel;
+﻿using DataAccessLibrary.EntityFramework;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace SteamApplication
 {
     public class AuthenticationService
     {
-        public static User CurrentUser { get; set; }
+        public static user CurrentUser { get; set; }
 
-        public void SignIn(User user)
+        public void SignIn(user user)
         {
             CurrentUser = user;
         }

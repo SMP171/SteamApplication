@@ -1,4 +1,5 @@
 ﻿using DataAccessLibrary;
+using DataAccessLibrary.EntityFramework;
 using DomainModel;
 using System;
 using System.Collections.Generic;
@@ -36,16 +37,16 @@ namespace SteamApplication
                 return;
             }
 
-            if (service.FindGroupByName(NameBox.Text).Name != null)
+            if (service.FindGroupByName(NameBox.Text).Group_name != null)
             {
                 MessageBox.Show("Группа с таким именем уже существует!");
                 return;
             }
 
-            Group newGroup = new Group()
+            group newGroup = new group()
             {
-                Name = NameBox.Text,
-                UserId = AuthenticationService.CurrentUser.Id
+                Group_name = NameBox.Text,
+                User_id = AuthenticationService.CurrentUser.user_id
             };
 
             service.CreateGroup(newGroup);

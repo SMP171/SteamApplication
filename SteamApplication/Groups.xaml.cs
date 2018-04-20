@@ -1,4 +1,5 @@
 ﻿using DataAccessLibrary;
+using DataAccessLibrary.EntityFramework;
 using DomainModel;
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,9 @@ namespace SteamApplication
         public Groups(Frame frame)
         {
             InitializeComponent();
-
+                              
             GroupService service = new GroupService();
-            GroupsDataGrid.ItemsSource = new ObservableCollection<Group>(service.SelectAllGroups());
+            GroupsDataGrid.ItemsSource = new ObservableCollection<group>(service.SelectAllGroups());
 
             MainFrame = frame;
             Width = frame.Width;
@@ -40,12 +41,12 @@ namespace SteamApplication
         private void CreateGroupButton_Click(object sender, RoutedEventArgs e)
         {
             Window createGroupWindow = new CreateGroup();
-            createGroupWindow.Show();
+            createGroupWindow.Show(); 
         }
 
         private void GroupInfo(object sender, RoutedEventArgs e)
         {
-            Group selectedGroup = GroupsDataGrid.Items[GroupsDataGrid.SelectedIndex] as Group;
+            group selectedGroup = GroupsDataGrid.Items[GroupsDataGrid.SelectedIndex] as group;
             MainFrame.NavigationService.Navigate(new GroupInfo(MainFrame, selectedGroup));
         }
 

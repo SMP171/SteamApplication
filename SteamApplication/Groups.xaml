@@ -35,15 +35,6 @@
             <Setter Property="Background" Value="#FF5D5D5D"/>
             <Setter Property="BorderThickness" Value="0 0 1 0"/>
             <Setter Property="Cursor" Value="Hand"/>
-            <!--<Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="DataGridCell">
-                        <Border BorderBrush="Black" Background="#FF5D5D5D" BorderThickness="0 0 2 0">
-                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>-->
         </Style>
 
         <Style TargetType="Button">
@@ -73,11 +64,10 @@
                 <DataGridTemplateColumn Header="GROUP NAME">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Click="GroupInfo" Content="{Binding Name}"/>
+                            <Button Click="GroupInfo" Content="{Binding Group_name}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn x:Name="MemberCountColumn" Width="260"  Binding="{Binding MembersCount}" Header="MEMBERS COUNT"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
