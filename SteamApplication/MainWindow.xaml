@@ -27,8 +27,8 @@
         <DockPanel LastChildFill="False">
             <Menu x:Name="Menu" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" Background="#FF5D5D5D" Foreground="White" DockPanel.Dock="Top">
                 <MenuItem x:Name="UserNameButton" Header="UserName" Foreground="White">
-                    <MenuItem Header="Profile" Background="#FF5D5D5D" Foreground="White" BorderBrush="Black" BorderThickness=" 0 0 0 2"></MenuItem>
-                    <MenuItem Header="Sign out" Background="#FF5D5D5D" Foreground="White" BorderBrush="Black" BorderThickness=" 0 0 0 2"></MenuItem>
+                    <MenuItem Name="ProfileButton" Header="Profile" Background="#FF5D5D5D" Foreground="White" BorderBrush="Black" BorderThickness=" 0 0 0 2"></MenuItem>
+                    <MenuItem Name="SignOutButton" Header="Sign out" Background="#FF5D5D5D" Foreground="White" BorderBrush="Black" BorderThickness=" 0 0 0 2" Checked="SignOutButtonClick"></MenuItem>
                 </MenuItem>
             </Menu>
 

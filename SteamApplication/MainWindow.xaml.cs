@@ -32,5 +32,16 @@ namespace SteamApplication
         {
             FrameContent.NavigationService.Navigate(new Groups(FrameContent));
         }
+
+        public void UpdateUser()
+        {
+            UserNameButton.Header = AuthenticationService.CurrentUser.nickname;
+        }
+
+        private void SignOutButtonClick(object sender, RoutedEventArgs e)
+        {
+            AuthenticationService service = new AuthenticationService();
+            service.SignOut();
+        }
     }
 }

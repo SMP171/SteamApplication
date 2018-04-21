@@ -32,7 +32,6 @@ namespace SteamApplication
 
         private void RegisterButtonClick(object sender, RoutedEventArgs e)
         {
-
             if (ValidateRegistration())
             {
                 Service.CreateUsers(new User
@@ -40,6 +39,13 @@ namespace SteamApplication
                     Nickname = NicknameText.Text,
                     Password = PasswordText.Text
                 });
+
+                // Моментальная аутентификация после создания нового пользователя
+                using(var context = new SteamContext())
+                {
+                    AuthenticationService authService = new AuthenticationService();
+                    authService.SignIn(context.Users.Single(x => x.nickname == NicknameText.Text));
+                }
 
                 Close();
             }
