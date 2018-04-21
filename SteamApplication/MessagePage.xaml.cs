@@ -12,17 +12,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SteamApplication
 {
     /// <summary>
-    /// Логика взаимодействия для MessageWindow.xaml
+    /// Логика взаимодействия для MessagePage.xaml
     /// </summary>
-    public partial class MessageWindow : Window
+    public partial class MessagePage : Page
     {
         private user user;
-        public MessageWindow(user tmpUser)
+        public MessagePage(user tmpUser)
         {
             InitializeComponent();
 
@@ -39,12 +40,13 @@ namespace SteamApplication
             user friendUser = FriendsDataGrid.SelectedItem as user;
             ChatWindow chatWindow = new ChatWindow(user, friendUser);
             chatWindow.ShowDialog();
-            this.Close();
+            
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            UserProfilePage userProfilePage = new UserProfilePage(user);
+            this.NavigationService.Navigate(userProfilePage);
         }
     }
 }

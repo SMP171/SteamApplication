@@ -10,14 +10,6 @@
     Height="500"
     mc:Ignorable="d">
     <Grid>
-        <Button
-            Name="btnBack"
-            Width="159"
-            Height="35"
-            Margin="10,10,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Back" />
         <Label
             Name="lblFriendName"
             Width="241"
@@ -32,6 +24,7 @@
             Name="txtBox2"
             Width="770"
             Height="334"
+            Margin="10,50,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="LightGray"
@@ -40,7 +33,7 @@
             ScrollViewer.HorizontalScrollBarVisibility="Auto"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
             Text="TextBox"
-            TextWrapping="Wrap" Margin="10,50,0,0" />
+            TextWrapping="Wrap" />
 
         <TextBox
             Name="txtBox"
@@ -67,6 +60,7 @@
             Margin="692,4,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            Click="btnClose_Click"
             Content="Close" />
     </Grid>
 </Window>

@@ -56,5 +56,10 @@ namespace SteamApplication
                 txtBox2.Text = result;
             }
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -31,14 +31,14 @@ namespace SteamApplication
 
         private void btnFriends_Click(object sender, RoutedEventArgs e)
         {
-            FriendsWindow friendsWindow = new FriendsWindow(user);
-            friendsWindow.ShowDialog();
+            FriendsPage friendsPage = new FriendsPage(user);
+            this.NavigationService.Navigate(friendsPage);
         }
 
         private void Messages_Click(object sender, RoutedEventArgs e)
         {
-            MessageWindow messageWindow = new MessageWindow(user);
-            messageWindow.ShowDialog();
+            MessagePage messagePage = new MessagePage(user);
+            this.NavigationService.Navigate(messagePage);
         }
     }
 }

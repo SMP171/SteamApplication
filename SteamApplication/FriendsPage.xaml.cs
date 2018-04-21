@@ -1,6 +1,6 @@
 ﻿using DataAccessLibrary;
+using DataAccessLibrary.EntityFramework;
 using System;
-using System.Data.Common;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,18 +12,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DataAccessLibrary.EntityFramework;
 
 namespace SteamApplication
 {
     /// <summary>
-    /// Логика взаимодействия для FriendsWindow.xaml
+    /// Логика взаимодействия для FriendsPage.xaml
     /// </summary>
-    public partial class FriendsWindow : Window
+    public partial class FriendsPage : Page
     {
         private user user;
-        public FriendsWindow(user tmpUser)
+        public FriendsPage(user tmpUser)
         {
             InitializeComponent();
 
@@ -76,12 +76,18 @@ namespace SteamApplication
             user friendUser = FriendsDataGrid.SelectedItem as user;
             ChatWindow chatWindow = new ChatWindow(user, friendUser);
             chatWindow.ShowDialog();
-            this.Close();
+            
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            UserProfilePage userProfilePage = new UserProfilePage(user);
+            this.NavigationService.Navigate(userProfilePage);
+        }
+
+        private void btnAddFriend_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

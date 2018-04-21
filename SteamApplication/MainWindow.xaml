@@ -6,8 +6,8 @@
     xmlns:local="clr-namespace:SteamApplication"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
-    Width="800"
-    Height="600"
+    Width="831.5"
+    Height="666"
     mc:Ignorable="d">
     <Grid>
         <Label
@@ -73,8 +73,8 @@
             FontSize="18" />
         <Frame
             x:Name="myFrame"
-            Width="769"
-            Height="439"
+            Width="800             "
+            Height="500             "
             Margin="10,120,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
