@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticationService.cs" />
     <Compile Include="DeveloperService.cs" />
     <Compile Include="EntityFramework\developer.cs" />
     <Compile Include="EntityFramework\friend.cs" />

@@ -11,13 +11,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataAccessLibrary;
 using DataAccessLibrary.EntityFramework;
 
 namespace SteamApplication
 {
-    /// <summary>
-    /// Логика взаимодействия для LoginScreenWindow.xaml
-    /// </summary>
+    
     public partial class LoginScreenWindow : Window
     {
         public LoginScreenWindow()
@@ -38,7 +37,10 @@ namespace SteamApplication
 
                 if (users.Count == 1)
                 {
-                    MainWindow mainWindow = new MainWindow(users[0]);
+                    AuthenticationService authenticationService = new AuthenticationService();
+                    authenticationService.SignIn(users[0]);
+
+                    MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
                     this.Close();
                 }

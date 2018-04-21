@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DataAccessLibrary.EntityFramework;
+using DataAccessLibrary;
 
 namespace SteamApplication
 {
@@ -21,23 +22,21 @@ namespace SteamApplication
     /// </summary>
     public partial class UserProfilePage : Page
     {
-        private user user;
-        public UserProfilePage(user tmpUser)
+        public UserProfilePage()
         {
             InitializeComponent();
-            user = tmpUser;
-            lblUserName.Content = "User: " + user.nickname;
+            lblUserName.Content = "User: " + AuthenticationService.CurrentUser.nickname;
         }
 
         private void btnFriends_Click(object sender, RoutedEventArgs e)
         {
-            FriendsPage friendsPage = new FriendsPage(user);
+            FriendsPage friendsPage = new FriendsPage();
             this.NavigationService.Navigate(friendsPage);
         }
 
         private void Messages_Click(object sender, RoutedEventArgs e)
         {
-            MessagePage messagePage = new MessagePage(user);
+            MessagePage messagePage = new MessagePage();
             this.NavigationService.Navigate(messagePage);
         }
     }
