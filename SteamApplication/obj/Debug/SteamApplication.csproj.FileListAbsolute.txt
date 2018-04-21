@@ -26,3 +26,7 @@ C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplica
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\Groups.baml
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\GroupInfo.g.cs
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\GroupInfo.baml
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\Registration.g.cs
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\Registration.baml
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\EntityFramework.SqlServer.xml

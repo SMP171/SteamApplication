@@ -8,7 +8,7 @@ namespace DataAccessLibrary.EntityFramework
     public partial class SteamContext : DbContext
     {
         public SteamContext()
-            : base("name=SteamContext")
+            : base("SteamContext")
         {
         }
 

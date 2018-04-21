@@ -26,10 +26,6 @@ namespace SteamApplication
         public MainWindow()
         {
             InitializeComponent();
-
-            GroupService groupService = new GroupService();
-
-            List<group> groups = groupService.SelectAllGroups();
         }
 
         private void GroupsButton_Click(object sender, RoutedEventArgs e)
