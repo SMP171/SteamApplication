@@ -1,0 +1,71 @@
+﻿<Window
+    x:Class="SteamApplication.LoginScreenWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SteamApplication"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="LoginScreenWindow"
+    Width="800"
+    Height="500"
+    mc:Ignorable="d">
+    <Grid>
+        <Label
+            Width="181"
+            Margin="336,64,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Login"
+            FontSize="30" />
+        <Label
+            Width="123"
+            Margin="296,133,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="UserName"
+            FontSize="20" />
+        <TextBox
+            Name="txtBoxUserName"
+            Width="166"
+            Height="34"
+            Margin="302,175,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text=""
+            TextWrapping="Wrap" />
+        <Label
+            Width="123"
+            Margin="299,214,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Password"
+            FontSize="20" />
+        <TextBox
+            Name="txtBoxPassword"
+            Width="166"
+            Height="36"
+            Margin="302,256,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text=""
+            TextWrapping="Wrap" />
+        <Button
+            Name="btnSubmit"
+            Width="166"
+            Height="44"
+            Margin="302,309,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="btnSubmit_Click"
+            Content="Submit" />
+        <Button
+            x:Name="btnRegistration"
+            Width="166"
+            Height="44"
+            Margin="302,358,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="btnRegistration_Click"
+            Content="Registration" />
+    </Grid>
+</Window>

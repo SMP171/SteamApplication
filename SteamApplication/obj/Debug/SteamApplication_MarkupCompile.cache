@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\
+E:\SteamApplication\SteamApplication\obj\Debug\
 SteamApplication
 none
 false
 DEBUG;TRACE
-C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\App.xaml
+E:\SteamApplication\SteamApplication\App.xaml
 5-58492028
 
-10-63066003
-18-1237770906
+14-1978860999
+18606248784
 CreateGroup.xaml;GroupInfo.xaml;Groups.xaml;MainWindow.xaml;Registration.xaml;
 
-False
+True
 
