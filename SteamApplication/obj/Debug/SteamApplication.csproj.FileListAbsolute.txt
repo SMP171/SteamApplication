@@ -45,3 +45,4 @@ D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication_
 D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.lref
 D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.exe
 D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.pdb
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\UserProfile.g.cs

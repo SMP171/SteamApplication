@@ -123,5 +123,37 @@ namespace DataAccessLibrary
 
             return findingUser;
         }
+
+        public List<user> SelectUser(user user)
+        {
+            using (var context = new SteamContext())
+            {
+                List<user> users = new List<user>();
+                users = context.Users.Where(x => x.status_id == user.status_id).ToList();
+
+                return users;
+            }
+        }
+
+        public List<user> SelectUserWalletUser(user user)
+        {
+            using (var context = new SteamContext())
+            {
+                List<user> users = new List<user>();
+                users = context.Users.Where(x => x.wallet_id == user.wallet_id).ToList();
+
+                return users;
+            }
+        }
+
+        public decimal AddWallet(user user, long money)
+        {
+            using (var context = new SteamContext())
+            {
+                wallet wallet = new wallet();
+                decimal walletMoney = wallet.balance += money;
+                return walletMoney;
+            }
+        }
     }
 }
