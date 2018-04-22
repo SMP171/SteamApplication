@@ -25,7 +25,7 @@ namespace SteamApplication
             InitializeComponent();
         }
 
-        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
             var userName = txtBoxUserName.Text;
             var userPswrd = txtBoxPassword.Text;
@@ -53,7 +53,7 @@ namespace SteamApplication
 
         }
 
-        private void btnRegistration_Click(object sender, RoutedEventArgs e)
+        private void BtnRegistration_Click(object sender, RoutedEventArgs e)
         {
             Registration registrationWndw = new Registration();
             registrationWndw.ShowDialog();

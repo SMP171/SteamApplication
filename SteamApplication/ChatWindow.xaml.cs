@@ -37,7 +37,7 @@ namespace SteamApplication
             txtBox2.Text = result;
         }
 
-        private void btnSend_Click(object sender, RoutedEventArgs e)
+        private void BtnSend_Click(object sender, RoutedEventArgs e)
         {
             if (txtBox.Text != "")
             {
@@ -53,7 +53,7 @@ namespace SteamApplication
             }
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

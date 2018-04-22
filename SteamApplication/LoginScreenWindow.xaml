@@ -56,7 +56,7 @@
             Margin="302,309,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="btnSubmit_Click"
+            Click="BtnSubmit_Click"
             Content="Submit" />
         <Button
             x:Name="btnRegistration"
@@ -65,7 +65,7 @@
             Margin="302,358,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="btnRegistration_Click"
+            Click="BtnRegistration_Click"
             Content="Registration" />
     </Grid>
 </Window>

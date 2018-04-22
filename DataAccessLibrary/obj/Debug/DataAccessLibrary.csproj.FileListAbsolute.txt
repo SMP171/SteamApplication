@@ -11,3 +11,16 @@ C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\DataAccessLi
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\DataAccessLibrary\obj\Debug\DataAccessLibrary.csproj.CoreCompileInputs.cache
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\DataAccessLibrary\obj\Debug\DataAccessLibrary.dll
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\DataAccessLibrary\obj\Debug\DataAccessLibrary.pdb
+D:\Visual projects\SteamApplication\DataAccessLibrary\bin\Debug\DataAccessLibrary.dll.config
+D:\Visual projects\SteamApplication\DataAccessLibrary\bin\Debug\DataAccessLibrary.dll
+D:\Visual projects\SteamApplication\DataAccessLibrary\bin\Debug\DataAccessLibrary.pdb
+D:\Visual projects\SteamApplication\DataAccessLibrary\bin\Debug\DomainModel.dll
+D:\Visual projects\SteamApplication\DataAccessLibrary\bin\Debug\EntityFramework.dll
+D:\Visual projects\SteamApplication\DataAccessLibrary\bin\Debug\EntityFramework.SqlServer.dll
+D:\Visual projects\SteamApplication\DataAccessLibrary\bin\Debug\DomainModel.pdb
+D:\Visual projects\SteamApplication\DataAccessLibrary\bin\Debug\EntityFramework.xml
+D:\Visual projects\SteamApplication\DataAccessLibrary\bin\Debug\EntityFramework.SqlServer.xml
+D:\Visual projects\SteamApplication\DataAccessLibrary\obj\Debug\DataAccessLibrary.csprojResolveAssemblyReference.cache
+D:\Visual projects\SteamApplication\DataAccessLibrary\obj\Debug\DataAccessLibrary.csproj.CoreCompileInputs.cache
+D:\Visual projects\SteamApplication\DataAccessLibrary\obj\Debug\DataAccessLibrary.dll
+D:\Visual projects\SteamApplication\DataAccessLibrary\obj\Debug\DataAccessLibrary.pdb

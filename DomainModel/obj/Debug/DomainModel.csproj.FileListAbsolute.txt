@@ -4,3 +4,9 @@ C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\DomainModel\
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\DomainModel\obj\Debug\DomainModel.csproj.CoreCompileInputs.cache
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\DomainModel\obj\Debug\DomainModel.dll
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\DomainModel\obj\Debug\DomainModel.pdb
+D:\Visual projects\SteamApplication\DomainModel\bin\Debug\DomainModel.dll
+D:\Visual projects\SteamApplication\DomainModel\bin\Debug\DomainModel.pdb
+D:\Visual projects\SteamApplication\DomainModel\obj\Debug\DomainModel.csprojResolveAssemblyReference.cache
+D:\Visual projects\SteamApplication\DomainModel\obj\Debug\DomainModel.csproj.CoreCompileInputs.cache
+D:\Visual projects\SteamApplication\DomainModel\obj\Debug\DomainModel.dll
+D:\Visual projects\SteamApplication\DomainModel\obj\Debug\DomainModel.pdb

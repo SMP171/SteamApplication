@@ -41,7 +41,7 @@ namespace SteamApplication
 
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             UserProfilePage userProfilePage = new UserProfilePage();
             this.NavigationService.Navigate(userProfilePage);

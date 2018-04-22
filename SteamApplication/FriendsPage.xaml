@@ -18,7 +18,7 @@
             Margin="10,10,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="btnAddFriend_Click"
+            Click="BtnAddFriend_Click"
             Content="Add friend"
             FontSize="9" />
         <DataGrid
@@ -70,7 +70,7 @@
             Margin="275,10,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="btnBack_Click"
+            Click="BtnBack_Click"
             Content="Back" />
     </Grid>
 </Page>

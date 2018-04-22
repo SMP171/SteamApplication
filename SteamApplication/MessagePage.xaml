@@ -47,7 +47,7 @@
             Margin="687,10,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="btnBack_Click"
+            Click="BtnBack_Click"
             Content="Back" />
     </Grid>
 </Page>

@@ -51,7 +51,7 @@
             Margin="569,389,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="btnSend_Click"
+            Click="BtnSend_Click"
             Content="Send" />
         <Button
             Name="btnClose"
@@ -60,7 +60,7 @@
             Margin="692,4,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="btnClose_Click"
+            Click="BtnClose_Click"
             Content="Close" />
     </Grid>
 </Window>

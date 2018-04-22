@@ -30,3 +30,18 @@ C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplica
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\obj\Debug\Registration.baml
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\EntityFramework.SqlServer.xml
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.csprojResolveAssemblyReference.cache
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\ChatWindow.g.cs
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\CreateGroup.g.cs
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\FriendsPage.g.cs
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\GroupInfo.g.cs
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\Groups.g.cs
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\LoginScreenWindow.g.cs
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\MainWindow.g.cs
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\MessagePage.g.cs
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\Registration.g.cs
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\App.g.cs
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.cache
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.lref
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.exe
+D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.pdb
