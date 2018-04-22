@@ -35,5 +35,9 @@ namespace SteamApplication
         {
             FrameContent.NavigationService.Navigate(new Groups(FrameContent));
         }
+        private void StoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            FrameContent.NavigationService.Navigate(new Store(FrameContent));
+        }
     }
 }

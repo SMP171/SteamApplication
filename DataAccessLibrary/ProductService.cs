@@ -91,40 +91,11 @@ namespace DataAccessLibrary
             }
         }
 
-        public List<Product> SelectAllProducts()
+        public List<product> SelectAllProducts()
         {
-            List<Product> products = new List<Product>();
-
             SteamContext ctx = new SteamContext();
 
-            products = ctx.Products.ToList();
-
-            //using (var connection = SqlConncetionHelper.Connection)
-            //{
-            //    connection.Open();
-            //    DbCommand command = connection.CreateCommand();
-            //    command.CommandText = "select * from dbo.products";
-
-            //    DbDataReader reader = command.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        products.Add(
-            //            new Product
-            //            {
-            //                ProductId = (int)reader["products_id"],
-            //                Name = (string)reader["name"],
-            //                Description = (string)reader["description"],
-            //                PositiveMarks = (int)reader["positive_marks"],
-            //                NegativeMarks = (int)reader["negative_marks"],
-            //                DeveloperId = (int)reader["devoloper_id"],
-            //                Rating = (int)reader["rating"],
-            //                Price = (decimal)reader["price"],
-            //                IsDeleted = (bool)reader["IsDeleted"],
-            //                CreateDate = (DateTime)reader["create_date"]
-            //            });
-            //    }
-            //}
-            return products;
+            return ctx.Products.ToList();
         }
 
         public bool DeleteProduct(Product product)

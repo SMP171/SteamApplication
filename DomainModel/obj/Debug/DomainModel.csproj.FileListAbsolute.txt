@@ -1,5 +1,5 @@
-C:\Users\8\Documents\Visual Studio 2017\Projects\SteamApplication\DomainModel\bin\Debug\DomainModel.dll
-C:\Users\8\Documents\Visual Studio 2017\Projects\SteamApplication\DomainModel\bin\Debug\DomainModel.pdb
-C:\Users\8\Documents\Visual Studio 2017\Projects\SteamApplication\DomainModel\obj\Debug\DomainModel.csproj.CoreCompileInputs.cache
-C:\Users\8\Documents\Visual Studio 2017\Projects\SteamApplication\DomainModel\obj\Debug\DomainModel.dll
-C:\Users\8\Documents\Visual Studio 2017\Projects\SteamApplication\DomainModel\obj\Debug\DomainModel.pdb
+C:\Users\8\Desktop\steamApp\SteamA\DomainModel\bin\Debug\DomainModel.dll
+C:\Users\8\Desktop\steamApp\SteamA\DomainModel\bin\Debug\DomainModel.pdb
+C:\Users\8\Desktop\steamApp\SteamA\DomainModel\obj\Debug\DomainModel.csproj.CoreCompileInputs.cache
+C:\Users\8\Desktop\steamApp\SteamA\DomainModel\obj\Debug\DomainModel.dll
+C:\Users\8\Desktop\steamApp\SteamA\DomainModel\obj\Debug\DomainModel.pdb

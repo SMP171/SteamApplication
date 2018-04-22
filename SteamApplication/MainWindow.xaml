@@ -33,7 +33,7 @@
             </Menu>
 
             <DockPanel DockPanel.Dock="Top" LastChildFill="True">
-                <Button x:Name="StoreButton" Content="STORE"/>
+                <Button x:Name="StoreButton" Content="STORE" Click="StoreButton_Click"/>
                 <Button x:Name="LibraryButton" Content="LIBRARY"/>
                 <Button x:Name="GroupsButton" Content="GROUPS" Click="GroupsButton_Click"/>
                 <Button x:Name="ThreadsButton" Content="THREADS"/>

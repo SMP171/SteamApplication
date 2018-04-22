@@ -1,8 +1,8 @@
 ﻿using DataAccessLibrary;
 using DataAccessLibrary.EntityFramework;
-using DomainModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SteamApplication
@@ -20,17 +21,25 @@ namespace SteamApplication
     /// <summary>
     /// Interaction logic for Store.xaml
     /// </summary>
-    public partial class Store : Window
+    public partial class Store : Page
     {
-        private ProductService service = new ProductService();
-
-        private List<Product> productsToDisplay = new List<Product>();
-
-        public Store()
+        private Frame MainFrame { get; set; }
+        public ProductService Service { get; private set; }
+        public Store(Frame frame)
         {
             InitializeComponent();
-            productsToDisplay = service.SelectAllProducts();
-            productsGrid.ItemsSource = productsToDisplay;
+            Service = new ProductService();
+            StoreDataGrid.ItemsSource = Service.SelectAllProducts();
+            MainFrame = frame;
+            Width = frame.Width;
+            Height = frame.Height;
+        }
+
+        private void ProductInfo(object sender, RoutedEventArgs e)
+        {
+            product selectedProduct = new product();
+            selectedProduct = StoreDataGrid.Items[StoreDataGrid.SelectedIndex] as product;
+            MainFrame.NavigationService.Navigate(new ProductInfo(MainFrame, selectedProduct));
         }
     }
 }
