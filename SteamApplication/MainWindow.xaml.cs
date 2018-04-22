@@ -32,6 +32,7 @@ namespace SteamApplication
         {
             FrameContent.NavigationService.Navigate(new Groups(FrameContent));
         }
+<<<<<<< HEAD
 
         public void UpdateUser()
         {
@@ -42,6 +43,11 @@ namespace SteamApplication
         {
             AuthenticationService service = new AuthenticationService();
             service.SignOut();
+=======
+        private void StoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            FrameContent.NavigationService.Navigate(new Store(FrameContent));
+>>>>>>> Niyaz
         }
     }
 }

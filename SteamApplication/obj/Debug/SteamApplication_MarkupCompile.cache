@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\
+=======
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\
+>>>>>>> Niyaz
 SteamApplication
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\Visual projects\SteamApplication\SteamApplication\App.xaml
 9-195389352
 
 181057590179
 18-825480598
 ChatWindow.xaml;CreateGroup.xaml;FriendsPage.xaml;GroupInfo.xaml;Groups.xaml;LoginScreenWindow.xaml;MainWindow.xaml;MessagePage.xaml;Registration.xaml;
+=======
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\App.xaml
+6-1355566760
+
+11-1098917102
+18-250151167
+CreateGroup.xaml;GroupInfo.xaml;Groups.xaml;MainWindow.xaml;ProductInfo.xaml;Store.xaml;
+>>>>>>> Niyaz
 
 True
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\SteamApplication.exe.config
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\SteamApplication.exe
 C:\Users\ww\Documents\Visual Studio 2017\Projects\Steam Application\SteamApplication\bin\Debug\SteamApplication.pdb
@@ -45,3 +46,40 @@ D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication_
 D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.lref
 D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.exe
 D:\Visual projects\SteamApplication\SteamApplication\obj\Debug\SteamApplication.pdb
+=======
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\SteamApplication.exe.config
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\SteamApplication.exe
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\SteamApplication.pdb
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\DataAccessLibrary.dll
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\DomainModel.dll
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\EntityFramework.dll
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\DataAccessLibrary.pdb
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\DataAccessLibrary.dll.config
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\DomainModel.pdb
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\EntityFramework.xml
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\SteamApplication.csprojResolveAssemblyReference.cache
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\CreateGroup.g.cs
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\GroupInfo.g.cs
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\Groups.g.cs
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\MainWindow.g.cs
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\ProductInfo.g.cs
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\Store.g.cs
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\App.g.cs
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.cache
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\SteamApplication_MarkupCompile.lref
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\CreateGroup.baml
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\GroupInfo.baml
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\Groups.baml
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\MainWindow.baml
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\ProductInfo.baml
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\Store.baml
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\SteamApplication.g.resources
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\SteamApplication.Properties.Resources.resources
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\SteamApplication.csproj.GenerateResource.cache
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\SteamApplication.csproj.CoreCompileInputs.cache
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\SteamApplication.csproj.CopyComplete
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\SteamApplication.exe
+C:\Users\8\Desktop\steamApp\SteamA\SteamApplication\obj\Debug\SteamApplication.pdb
+>>>>>>> Niyaz
