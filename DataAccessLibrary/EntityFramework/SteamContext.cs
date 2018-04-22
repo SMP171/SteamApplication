@@ -8,7 +8,11 @@ namespace DataAccessLibrary.EntityFramework
     public partial class SteamContext : DbContext
     {
         public SteamContext()
+<<<<<<< HEAD
             : base("SteamContext")
+=======
+            : base("name=DB171")
+>>>>>>> Niyaz
         {
         }
 

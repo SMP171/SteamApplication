@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
     <Compile Include="ChatWindow.xaml.cs">
       <DependentUpon>ChatWindow.xaml</DependentUpon>
     </Compile>
@@ -80,6 +81,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+=======
+    <Compile Include="ProductInfo.xaml.cs">
+      <DependentUpon>ProductInfo.xaml</DependentUpon>
+    </Compile>
+    <!--<<<<<<< HEAD-->
+    <Compile Include="Store.xaml.cs">
+      <DependentUpon>Store.xaml</DependentUpon>
+    </Compile>
+    <!--=======-->
+>>>>>>> Niyaz
     <Page Include="CreateGroup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -96,10 +107,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="LoginScreenWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+=======
+    <!-->>>>>>> master-->
+>>>>>>> Niyaz
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -122,11 +137,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
     <Page Include="MessagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Registration.xaml">
+=======
+    <Page Include="ProductInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Store.xaml">
+>>>>>>> Niyaz
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,11 +183,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj">
+      <!--<<<<<<< HEAD-->
+      <Project>{58FBD3F2-466F-4410-9E11-A72D659CA60F}</Project>
+      <Name>DataAccessLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{E65C4984-3A22-487C-8272-D49633694D38}</Project>
+      <!--=======-->
       <Project>{58fbd3f2-466f-4410-9e11-a72d659ca60f}</Project>
       <Name>DataAccessLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">
       <Project>{e65c4984-3a22-487c-8272-d49633694d38}</Project>
+      <!-->>>>>>> master-->
       <Name>DomainModel</Name>
     </ProjectReference>
   </ItemGroup>

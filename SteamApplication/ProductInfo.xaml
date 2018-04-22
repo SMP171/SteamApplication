@@ -1,0 +1,84 @@
+﻿<Page x:Class="SteamApplication.ProductInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SteamApplication"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="ProductInfo" Width="792" Height="500">
+
+    <Page.Resources>
+        <Style TargetType="DataGrid">
+            <Setter Property="FontFamily" Value="Century Gothic" />
+            <Setter Property="FontSize" Value="28 px"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserReorderColumns" Value="False"/>
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="CanUserSortColumns" Value="False"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#FF5D5D5D" />
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="0 0 2 2"/>
+            <Setter Property="Padding" Value="10 0 10 0"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#FF5D5D5D"/>
+            <Setter Property="BorderThickness" Value="0 0 1 0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="#FF5D5D5D">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Name="TitleDisplay" TextAlignment="Center" FontSize="60" TextWrapping="Wrap"/>
+            <ScrollViewer Grid.Row="1" >
+                <TextBlock Name="DescriptionDisplay" TextAlignment="Center" FontSize="30" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"/>
+            </ScrollViewer>
+            <TextBlock Grid.Row="2" Name="DeveloperDisplay" TextWrapping="Wrap" TextAlignment="Center" Width="300" FontSize="30" HorizontalAlignment="Left"/>
+            <TextBlock Grid.Row="2" Name="PriceDisplay" TextAlignment="Center" Width="100" FontSize="30" TextWrapping="Wrap"  HorizontalAlignment="Right"/>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <TextBlock Name="RatignDisplay" VerticalAlignment="Top" TextAlignment="Center" FontSize="60" Height="85"/>
+            <DataGrid Name="commentsGrid" Margin="0 70 0 0" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Review" Width="300">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Text}" TextWrapping="Wrap" ScrollViewer.CanContentScroll="True"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Mark" Width="90*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding ImageMark}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</Page>

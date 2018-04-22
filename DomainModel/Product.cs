@@ -14,6 +14,7 @@ namespace DomainModel
         public string Description { get; set; }
         public int PositiveMarks { get; set; }
         public int NegativeMarks { get; set; }
+        public int Rating { get; set; }
         public int DeveloperId { get; set; }
         public decimal Price { get; set; }
         public bool IsDeleted { get; set; }
