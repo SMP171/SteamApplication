@@ -44,7 +44,7 @@ namespace SteamApplication
                 using(var context = new SteamContext())
                 {
                     AuthenticationService authService = new AuthenticationService();
-                    authService.SignIn(context.Users.Single(x => x.nickname == NicknameText.Text));
+                    authService.SignIn(context.Users.SingleOrDefault(x => x.nickname == NicknameText.Text));
                 }
 
                 Close();

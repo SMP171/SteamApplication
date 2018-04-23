@@ -43,7 +43,7 @@ namespace SteamApplication
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            UserProfilePage userProfilePage = new UserProfilePage();
+            UserProfile userProfilePage = new UserProfile(AuthenticationService.CurrentUser);
             this.NavigationService.Navigate(userProfilePage);
         }
     }

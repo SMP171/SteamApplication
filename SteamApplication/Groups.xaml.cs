@@ -25,13 +25,14 @@ namespace SteamApplication
     public partial class Groups : Page
     {
         private Frame MainFrame { get; set; }
+        private GroupService Service { get; set; }
 
         public Groups(Frame frame)
         {
             InitializeComponent();
-                              
-            GroupService service = new GroupService();
-            GroupsDataGrid.ItemsSource = new ObservableCollection<group>(service.SelectAllGroups());
+
+            Service = new GroupService();
+            UpdateGroupsGrid();
 
             MainFrame = frame;
             Width = frame.Width;
@@ -40,7 +41,7 @@ namespace SteamApplication
 
         private void CreateGroupButton_Click(object sender, RoutedEventArgs e)
         {
-            Window createGroupWindow = new CreateGroup();
+            Window createGroupWindow = new CreateGroup(this);
             createGroupWindow.Show(); 
         }
 
@@ -54,6 +55,11 @@ namespace SteamApplication
         {
             this.Width = MainFrame.Width;
             this.Height = MainFrame.Height;
+        }
+
+        public void UpdateGroupsGrid()
+        {
+            GroupsDataGrid.ItemsSource = new ObservableCollection<group>(Service.SelectAllGroups());
         }
     }
 }

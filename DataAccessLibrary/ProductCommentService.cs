@@ -1,106 +1,52 @@
-﻿using DomainModel;
+﻿using DataAccessLibrary.EntityFramework;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Linq;
 
 namespace DataAccessLibrary
 {
     public class ProductCommentService
     {
-        public bool CreateProductComment(ProductComment comment)
+        public bool CreateProductComment(product_comments comment)
         {
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
+            SteamContext context = new SteamContext();
+            product_comments newComment = new product_comments();
 
-            DbParameter productIdParameter = command.CreateParameter();
-            productIdParameter.DbType = System.Data.DbType.Int32;
-            productIdParameter.IsNullable = false;
-            productIdParameter.ParameterName = "@productId";
-            productIdParameter.Value = comment.ProductId;
+            newComment.product_id = comment.product_id;
+            newComment.user_id = comment.user_id;
+            newComment.text = comment.text;
+            newComment.send_date = comment.send_date;
+            newComment.comment_mark = comment.comment_mark;
 
-            DbParameter userIdParameter = command.CreateParameter();
-            userIdParameter.DbType = System.Data.DbType.Int32;
-            userIdParameter.IsNullable = false;
-            userIdParameter.ParameterName = "@userId";
-            userIdParameter.Value = comment.UserId;
+            context.Product_comments.Add(newComment);
 
-            DbParameter textParameter = command.CreateParameter();
-            textParameter.DbType = System.Data.DbType.String;
-            textParameter.IsNullable = false;
-            textParameter.ParameterName = "@text";
-            textParameter.Value = comment.Text;
-
-            DbParameter markIdParameter = command.CreateParameter();
-            markIdParameter.DbType = System.Data.DbType.Int32;
-            markIdParameter.IsNullable = false;
-            markIdParameter.ParameterName = "@markId";
-            markIdParameter.Value = comment.MarkId;
-
-            command.Parameters.AddRange(new DbParameter[] { productIdParameter, userIdParameter, textParameter, markIdParameter });
-            command.CommandText = @"insert into dbo.product_comments
-                        ([product_id],[user_id], [text], [mark_id]) values
-                        (@productId, @userId, @text, @markId)";
-
-            return SqlConncetionHelper.ExecuteCommands(command);
+            if (context.SaveChanges() == 0)
+            {
+                return false;
+            }
+            return true;
         }
 
-        public List<ProductComment> SelectAllProductComments()
+        public List<product_comments> SelectAllProductComments()
         {
-            List<ProductComment> comments = new List<ProductComment>();
-
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
-
-            command.CommandText = "select * from dbo.Product_comments";
-
-            DbDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                comments.Add(
-                    new ProductComment
-                    {
-                        ProductCommentId = (int)reader["PC_id"],
-                        ProductId = (int)reader["Product_id"],
-                        UserId = (int)reader["User_id"],
-                        Text = reader["Text"].ToString(),
-                        DateSent = (DateTime)reader["Send_date"],
-                        MarkId = (int)reader["Mark_id"]
-                    });
-            }
-
-            return comments;
+            SteamContext context = new SteamContext();
+            return context.Product_comments.ToList();
         }
 
-        public List<ProductComment> SelectUserProductComments(User user)
+        public List<product_comments> SelectUserProductComments(user user)
         {
             List<ProductComment> comments = new List<ProductComment>();
+            SteamContext context = new SteamContext();
+            return context.Product_comments.Where(comment => comment.user_id == user.user_id).ToList();
+        }
 
-            DbCommand command = SqlConncetionHelper.Connection.CreateCommand();
-
-            DbParameter userIdParameter = command.CreateParameter();
-            userIdParameter.DbType = System.Data.DbType.Int32;
-            userIdParameter.IsNullable = false;
-            userIdParameter.ParameterName = "@userId";
-            userIdParameter.Value = user.Id;
-            command.Parameters.Add(userIdParameter);
-
-            command.CommandText = "select * from dbo.Product_comments where user_id = @userId";
-
-            DbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                comments.Add(
-                    new ProductComment
-                    {
-                        ProductCommentId = (int)reader["PC_id"],
-                        ProductId = (int)reader["Product_id"],
-                        UserId = (int)reader["User_id"],
-                        Text = reader["Text"].ToString(),
-                        DateSent = (DateTime)reader["Send_date"],
-                        MarkId = (int)reader["Mark_id"]
-                    });
-            }
-
-            return comments;
+        public List<product_comments> SelectProductComments(product product)
+        {
+            List<ProductComment> comments = new List<ProductComment>();
+            SteamContext context = new SteamContext();
+            return context.Product_comments.Where(comment => comment.product_id == product.products_id).ToList();
         }
     }
 }

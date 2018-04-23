@@ -22,9 +22,13 @@ namespace SteamApplication
     /// </summary>
     public partial class CreateGroup : Window
     {
-        public CreateGroup()
+        private Groups GroupPage { get; set; }
+
+        public CreateGroup(Groups groupsPage)
         {
             InitializeComponent();
+
+            GroupPage = groupsPage;
         }
 
         private void CreateButtonClick(object sender, RoutedEventArgs e)
@@ -50,6 +54,7 @@ namespace SteamApplication
             };
 
             service.CreateGroup(newGroup);
+            GroupPage.UpdateGroupsGrid();
             Close();
         }
 

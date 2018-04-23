@@ -43,5 +43,25 @@ namespace SteamApplication
             AuthenticationService service = new AuthenticationService();
             service.SignOut();
         }
+
+        private void StoreButtonClick(object sender, RoutedEventArgs e)
+        {
+            FrameContent.NavigationService.Navigate(new Store(FrameContent));
+        }
+
+        private void LibraryButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ThreadsButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FriendsButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
